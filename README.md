@@ -4,6 +4,8 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 ## Installation Web App
 - Go to /application/config/database.php
 - Edit field: hostname - username - password - database (from line 78 to line 81)
+- Go to /diemdanh_nckh_official.sql
+- Import diemdanh_nckh_official.sql to mysql with database name like line 81 of /application/config/database.php
 - Go to /application/config/config.php
 - Edit field: $config['base_url'] (line 27) as localhost/host ip or address
 - View at address/ip like base_url
