@@ -7,7 +7,7 @@
       <div class="form-group">
         <span><strong>Tên tổ chức: </strong><?php echo $name; ?></span><br />
         <span><strong>Tổ chức quản lý: </strong>
-          <a href="<?php echo base_url('/organizations/org/'.$parent_id.'/')?>"><?php echo $parent_name; ?></a>
+          <a href="<?php echo base_url('/events/org/'.$parent_id.'/')?>"><?php echo $parent_name; ?></a>
         </span><br />
         <span><strong>Mô tả </strong><?php echo $description; ?></span>
       </div>
@@ -15,7 +15,7 @@
     <div class="col-md-6">
       <div class="section-header-wrap section-header-default">
         <div class="section-header">Sự kiện của tổ chức</div>
-        <div class="section-header"><a href="<?php echo base_url('events/org/4')?>">Xem tất cả</a></div>
+        <div class="section-header"><a href="<?php echo base_url('events/org/'.$org.'/all')?>">Xem tất cả</a></div>
       </div>
       <div id="list-wrpaaer" style="height:338px">
         <marquee direction="up" scrollamount="3">

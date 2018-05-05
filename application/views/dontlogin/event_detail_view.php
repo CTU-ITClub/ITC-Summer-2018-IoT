@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <span><i class="fa fa-home"></i><strong>Đơn vị tổ chức: </strong></span>
-          <a href="<?php echo base_url('/organizations/org/'.$contentPage['idOrg'].'/')?>"><?php echo $org['text']; ?></a>
+          <a href="<?php echo base_url('/events/org/'.$contentPage['idOrg'].'/')?>"><?php echo $org['text']; ?></a>
           <br>
         <span><i class="fa fa-calendar"></i><strong>Thời gian bắt đầu: </strong></span>
           <?php echo $contentPage['timeStart'].' '.$contentPage['dateEvent']; ?>

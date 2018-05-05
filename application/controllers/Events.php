@@ -42,21 +42,80 @@ class Events extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function org($id = null)
+		public function org($id = null, $status = null)
 		{
+			$getOrg = $this->Morg->getOrgById($id);
+      if($status == 'all') {
 				$isExistOrg = $this->Mevent->getByOrg($id);
-      if ($isExistOrg) {
-				$this->_data['subview'] = 'dontlogin/events_org_view';
-	      $this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
-				$this->_data['contentPage'] = $isExistOrg;
-	      $this->_data['nameOrg'] = $this->Morg->getOrgById($id);
+	      if ($isExistOrg) {
+					$this->_data['subview'] = 'dontlogin/events_org_view';
+		      $this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
+					$this->_data['contentPage'] = $isExistOrg;
+		      $this->_data['nameOrg'] = $this->Morg->getOrgById($id);
+				} else {
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Cảnh báo';
+	        $this->_data['type'] = 'warning';
+	        $this->_data['url'] = base_url('events');
+	        $this->_data['content'] = 'Access Denied';
+				}
 			} else {
-				$this->_data['subview'] = 'alert/load_alert_view';
-        $this->_data['titlePage'] = 'Cảnh báo';
-        $this->_data['type'] = 'warning';
-        $this->_data['url'] = base_url('events');
-        $this->_data['content'] = 'Access Denied';
+				if ($getOrg) {
+					if ($getOrg['parent'] == $getOrg['id']) {
+						$parent['text'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
+		        $parent['id'] = $getOrg['id'];
+		      } else $parent = $this->Morg->getOrgById($getOrg['parent']);
+
+					$this->_data['subview'] = 'dontlogin/events_org_detail_view';
+					$this->_data['titlePage'] = 'Chi tiết tổ chức';
+
+					$this->_data['event'] = $this->Mevent->getByOrg($id);
+
+					$this->_data['org'] = $id;
+		      $this->_data['name'] = $getOrg['text'];
+					$this->_data['parent_name'] = $parent['text'];
+					$this->_data['parent_id'] = $parent['id'];
+					$this->_data['description'] = $getOrg['description'];
+					$this->load->view('main.php', $this->_data);
+				} else {
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Cảnh báo';
+	        $this->_data['type'] = 'warning';
+	        $this->_data['url'] = base_url('organizations');
+	        $this->_data['content'] = 'Không tồn tại tổ chức';
+				}
 			}
       $this->load->view('main.php', $this->_data);
+		}
+
+		public function res()
+		{
+				header('Content-Type: application/json;charset=utf-8');
+				$content = $this->Morg->getList();
+				foreach ($content as $key => $row) {
+						if ($row['parent'] == 0) {
+								$parent = '#';
+								$open = true;
+						} else if ($row['parent'] == $row['id']) {
+								$parent = '#';
+								$open = true;
+						} else {
+								$parent = $row['parent'];
+								$open = false;
+						}
+						$data[] = array (
+							'id' => $row['id'],
+							'parent' => $parent,
+							'text' => $row['text'],
+							'icon' => false,
+							'state' => array (
+								'opened' => $open
+							),
+							'a_attr' => array (
+								'href' => base_url('events/org/'.$row['id'])
+							)
+					);
+				}
+				echo json_encode($data);
 		}
 }

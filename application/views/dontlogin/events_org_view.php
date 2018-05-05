@@ -18,7 +18,7 @@
                     <div class="pull-right">
                       <i class="fa fa-calendar"></i> '.$row['dateEvent'].' '.$row['timeStart'].'</div>
                     <div class="form-organization">
-                      <a href="'.base_url('/organizations/org/'.$row['idOrg'].'/').'">'.$nameOrg['text'].'</a>
+                      <a href="'.base_url('/events/org/'.$row['idOrg'].'/').'">'.$nameOrg['text'].'</a>
                     </div>
                   </div>
                 </div>

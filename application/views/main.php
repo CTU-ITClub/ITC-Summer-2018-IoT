@@ -89,7 +89,6 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
           <li><a href="<?php echo base_url('events/'); ?>">Sự kiện</a></li>
-          <li><a href="<?php echo base_url('organizations/'); ?>">Tổ chức</a></li>
           <li><a href="<?php echo base_url('admin/'); ?>">Quản trị</a></li>
           <?php
           $user = $this->session->userdata('user');

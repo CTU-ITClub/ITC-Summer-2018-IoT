@@ -1,6 +1,31 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
+      <div class="section-header-wrap section-header-default">
+          <div class="section-header">Các tổ chức</div>
+      </div>
+      <div id="tree_list"></div>
+
+      <!-- Using TreeJS -->
+      <script type="text/javascript">
+      $(document).ready(function(){
+        //fill data to tree  with AJAX call
+        $('#tree_list').jstree({
+            'core' : {
+                'data' : {
+                    "url" : "<?php echo base_url('events/res/'); ?>"
+                }
+            }
+        }).bind("select_node.jstree", function (e, data) {
+           var href = data.node.a_attr.href;
+           if(href == '#')
+           return '';
+           document.location.href = href;
+        });
+      });
+      </script>
+    </div>
+    <div class="col-md-8">
         <div class="section-header-wrap section-header-default">
             <div class="section-header">Hoạt động đang diễn ra trong ngày</div>
         </div>
@@ -20,7 +45,7 @@
                          <div class="pull-right">
                            <i class="fa fa-calendar"></i> '.$row['dateEvent'].' '.$row['timeStart'].'</div>
                          <div class="form-organization">
-                           <a href="'.base_url('/organizations/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
+                           <a href="'.base_url('/events/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
                          </div>
                        </div>
                      </div>
@@ -48,7 +73,7 @@
                          <div class="pull-right">
                            <i class="fa fa-calendar"></i> '.$row['dateEvent'].' '.$row['timeStart'].'</div>
                          <div class="form-organization">
-                           <a href="'.base_url('/organizations/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
+                           <a href="'.base_url('/events/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
                          </div>
                        </div>
                      </div>
@@ -76,7 +101,7 @@
                          <div class="pull-right">
                            <i class="fa fa-calendar"></i> '.$row['dateEvent'].' '.$row['timeStart'].'</div>
                          <div class="form-organization">
-                           <a href="'.base_url('/organizations/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
+                           <a href="'.base_url('/events/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
                          </div>
                        </div>
                      </div>
@@ -104,7 +129,7 @@
                          <div class="pull-right">
                            <i class="fa fa-calendar"></i> '.$row['dateEvent'].' '.$row['timeStart'].'</div>
                          <div class="form-organization">
-                           <a href="'.base_url('/organizations/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
+                           <a href="'.base_url('/events/org/'.$row['idOrg'].'/').'">'.$org['text'].'</a>
                          </div>
                        </div>
                      </div>
