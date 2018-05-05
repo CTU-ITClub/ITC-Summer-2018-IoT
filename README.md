@@ -83,6 +83,9 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * http://pi4j.com/example/
 * https://code.google.com/archive/p/json-simple/
 * https://www.mkyong.com/java/json-simple-example-read-and-write-json/
+* http://arduino.vn/bai-viet/1496-esp8266-ket-noi-internet-phan-1-cai-dat-esp8266-lam-mot-socket-client-ket-noi-toi
+* http://arduino.vn/bai-viet/1497-esp8266-ket-noi-internet-phan-2-arduino-gap-esp8266-hai-dua-noi-chuyen-bang-json
+* http://arduino.vn/bai-viet/1511-esp8266-ket-noi-internet-phan-3-arduino-gap-smartphone-hai-dua-noi-chuyen-bang-json
 
 ## My Team
 * Leader: Mr.Le Nguyen Thuc
