@@ -1,4 +1,13 @@
 <?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('report',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+?>
+<?php
 if(isset($_POST['view'])) {
   $idEvent = $_POST['nameEvent'];
 } else {

@@ -1,8 +1,22 @@
+<?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('event',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+?>
 <div class="container">
   <div class="page-header">
     <h1>Quản lý sự kiện</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
-    <button class="btn btn-success" data-toggle="modal" data-target="#new-event">Thêm sự kiện mới</button>
+    <a href="<?php echo base_url('admin/attendance/'); ?>" class="btn btn-info">Đến trang quản lý điểm danh</a>
+    <?php
+    if(in_array('newEvent',$fetchRole)) {
+      echo '<button class="btn btn-success" data-toggle="modal" data-target="#new-event">Thêm sự kiện mới</button>';
+    }
+    ?>
   </div>
   <div class="col-md-12">
     <table class="table" id="datatables">

@@ -32,16 +32,18 @@ class Auth extends CI_Controller {
           $this->_pwd = $_POST['pwd'];
         }
         $a_UserInfo['username'] = $this->input->post('uid');
-        $a_UserInfo['password'] = $this->input->post('pwd');
-			  // $a_UserInfo['password'] = md5($this->input->post('password'));
+        // $a_UserInfo['password'] = $this->input->post('pwd');
+			  $a_UserInfo['password'] = md5($this->input->post('pwd'));
         $a_UserChecking = $this->Mauth->a_fCheckUser( $a_UserInfo );
+        $a_HasRole = $this->Mauth->a_fHasRole( $a_UserChecking['rolename'] );
 
         $this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Đăng nhập';
         $this->_data['url'] = $_GET['next'];
 
         if($a_UserChecking){
-  				$this->session->set_userdata('user', $a_UserChecking);
+          $this->session->set_userdata('user', $a_UserChecking);
+  				$this->session->set_userdata('access', $a_HasRole);
   				$this->_data['type'] = 'success';
           $this->_data['content'] = 'Đăng nhập thành công với tài khoản '.$this->_uid;
     		} else{
@@ -55,6 +57,7 @@ class Auth extends CI_Controller {
     public function logout()
 		{
         $this->session->unset_userdata('user');	// Unset session of user
+        $this->session->unset_userdata('access');	// Unset session of user
         $this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Đăng xuất';
         $this->_data['type'] = 'success';

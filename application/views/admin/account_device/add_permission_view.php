@@ -1,6 +1,16 @@
+<?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('role',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+?>
 <div class="container">
   <div class="page-header">
     <h1>Quản lý phân quyền</h1>
+    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <a href="<?php echo base_url('admin/permissions/'); ?>" class="btn btn-default">Quay lại trang phân quyền</a>
     <a href="<?php echo base_url('admin/permissions/add'); ?>" class="btn btn-success">Thêm nhóm quyền mới</a>
   </div>
@@ -20,7 +30,7 @@
           <script language="JavaScript">
             function toggle(source) {
               checkboxes = document.getElementsByName('add[]');
-              for(var i=1, n=checkboxes.length;i<n;i++) {
+              for(var i=0, n=checkboxes.length;i<n;i++) {
                 checkboxes[i].checked = source.checked;
               }
             }
@@ -29,7 +39,6 @@
             <br />
             <label for="roleGroup">Chức năng nhóm quyền</label><br  />
             <input type="checkbox" onClick="toggle(this)" id="roleGroup"> Chọn tất cả
-            <input type="checkbox" name='add[]' value="fullcontrol" onClick="toggle(this)">Tất cả quyền
           </div>
           <div class="col-sm-12">
             <div class="col-sm-4">

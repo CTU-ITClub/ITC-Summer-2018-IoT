@@ -1,3 +1,12 @@
+<?php
+// Check login
+$loginStatus = $this->session->userdata('user'); 
+
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+?>
 <!doctype html>
 <html>
 <head>
@@ -89,10 +98,12 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
           <li><a href="<?php echo base_url('events/'); ?>">Sự kiện</a></li>
-          <li><a href="<?php echo base_url('admin/'); ?>">Quản trị</a></li>
           <?php
-          $user = $this->session->userdata('user');
-          if($user) {
+          if(in_array('admin',$fetchRole)) {
+            echo '<li><a href="'.base_url('admin/').'">Quản trị</a></li>';
+          }
+
+          if($loginStatus) {
             echo '<li><a href="'.base_url('auth/logout/?next='.$_SERVER['REQUEST_URI']).'">Đăng xuất</a></li>';
           } else {
             echo '<li><a href="#" data-toggle="modal" data-target="#loginform">Đăng nhập</a></li>';

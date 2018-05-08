@@ -1,7 +1,16 @@
+<?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('account',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+?>
 <div class="container">
   <div class="page-header">
     <h1>Chỉnh sửa tài khoản</h1>
-    <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
+    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <a href="<?php echo base_url('admin/user_account/'); ?>" class="btn btn-info">Quản lý tài khoản</a>
   </div>
   <div class="row">

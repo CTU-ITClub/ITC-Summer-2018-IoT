@@ -1,7 +1,16 @@
+<?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('identification',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+?>
 <div class="container">
   <div class="page-header">
     <h1>Quản lý thẻ RFID - Chi tiết định danh</h1>
-    <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
+    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <a href="<?php echo base_url('admin/rfid_account'); ?>" class="btn btn-primary">Quay lại trang quản lý thẻ RFID</a>
     <?php
     if ($typeName == 'Student') {

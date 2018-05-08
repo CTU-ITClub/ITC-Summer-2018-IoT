@@ -1,6 +1,3 @@
-<link href="<?php echo base_url('public/css/bootstrap.min.css'); ?>" rel="stylesheet">
-<script src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>';
-
 <div class="<?php echo $div_alert; ?>">
   <?php
   if ($type && $url && $content) {

@@ -45,7 +45,7 @@ class Admin extends CI_Controller {
 			$event = $this->Mevent->getById($event);
 			if ($event) {
 				if ($result) {
-					$this->_data['subview'] = 'admin/attendance/attendance_detail_view.php';
+					$this->_data['subview'] = 'admin/event/attendance_detail_view.php';
 					$this->_data['titlePage'] = 'Chi tiết điểm danh';
 					$this->_data['content'] = $result;
 		      $this->_data['event'] = $event['nameEvent'];
@@ -59,7 +59,7 @@ class Admin extends CI_Controller {
 					$this->load->view('main.php', $this->_data);
 				}
 			} else {
-					$this->_data['subview'] = 'admin/attendance/attendance_admin_view.php';
+					$this->_data['subview'] = 'admin/event/attendance_admin_view.php';
 					$this->_data['titlePage'] = 'Quản lý điểm danh';
 					$this->load->view('main.php', $this->_data);
 			}
@@ -69,7 +69,7 @@ class Admin extends CI_Controller {
 		{
 			$result = $this->Mattendance->getByCard($idCard);
 			if ($result) {
-					$this->_data['subview'] = 'admin/attendance/attendance_edit_view.php';
+					$this->_data['subview'] = 'admin/event/attendance_edit_view.php';
 					$this->_data['titlePage'] = 'Chi tiết điểm danh';
 					$this->_data['idCard'] = $idCard;
 					$this->_data['content'] = $result;
@@ -97,33 +97,33 @@ class Admin extends CI_Controller {
 		public function permissions($do = null, $name = null)
 		{
       if ($do == 'custom') {
-				$this->_data['subview'] = 'admin/permission/custom_permission_view.php';
+				$this->_data['subview'] = 'admin/account_device/custom_permission_view.php';
 				$this->_data['titlePage'] = 'Tùy biến phân quyền';
 				$this->_data['role'] = $this->Mrole->getRoleByName($name);
 	      $this->_data['count'] = $this->Mrole->countAllByName($name);
 	      $this->load->view('main.php', $this->_data);
 			} else if ($do == 'add') {
-				$this->_data['subview'] = 'admin/permission/add_permission_view.php';
+				$this->_data['subview'] = 'admin/account_device/add_permission_view.php';
 				$this->_data['titlePage'] = 'Thêm nhóm quyền';
 	      $this->load->view('main.php', $this->_data);
 			} else {
-				$this->_data['subview'] = 'admin/permission/permission_admin_view.php';
+				$this->_data['subview'] = 'admin/account_device/permission_admin_view.php';
 	      $this->_data['titlePage'] = 'Quản lý phân quyền và quyền truy cập';
 				$this->_data['content'] = $this->Mrole->getList();
 	      $this->load->view('main.php', $this->_data);
 			}
 		}
 
-		public function admin_account()
+		public function admin_account_device()
 		{
-      $this->_data['subview'] = 'admin/account/index_account_view.php';
-      $this->_data['titlePage'] = 'Quản lý tài khoản và người dùng';
+      $this->_data['subview'] = 'admin/account_device/index_view.php';
+      $this->_data['titlePage'] = 'Quản lý tài khoản, người dùng và thiết bị';
       $this->load->view('main.php', $this->_data);
 		}
 
 		public function rfid_account()
 		{
-			$this->_data['subview'] = 'admin/account/rfid_admin_view.php';
+			$this->_data['subview'] = 'admin/account_device/rfid_admin_view.php';
 			$this->_data['titlePage'] = 'Quản lý thẻ RFID';
 			$this->_data['content'] = $this->Mrfid->getList();
 			$this->load->view('main.php', $this->_data);
@@ -131,7 +131,7 @@ class Admin extends CI_Controller {
 
 		public function rfid_detail($id = null, $isStudent = null)
 		{
-			$this->_data['subview'] = 'admin/account/rfid_detail_view.php';
+			$this->_data['subview'] = 'admin/account_device/rfid_detail_view.php';
 			$this->_data['titlePage'] = 'Quản lý thẻ RFID - Chi tiết định danh';
 			$this->_data['idCard'] = $id;
 			if ($isStudent == 'student') {
@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
 
 		public function user_account()
 		{
-      $this->_data['subview'] = 'admin/account/account_admin_view.php';
+      $this->_data['subview'] = 'admin/account_device/account_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý tài khoản';
 			$this->_data['content'] = $this->Maccount->getList();
       $this->load->view('main.php', $this->_data);
@@ -158,7 +158,7 @@ class Admin extends CI_Controller {
 		{
 			$existAccount = $this->Maccount->getByUsername($uid);
       if ($existAccount) {
-				$this->_data['subview'] = 'admin/account/account_edit_view.php';
+				$this->_data['subview'] = 'admin/account_device/account_edit_view.php';
 				$this->_data['titlePage'] = 'Chỉnh sửa tài khoản';
 	      $this->_data['uid'] = $uid;
 				$this->_data['content'] = $existAccount;
@@ -168,7 +168,7 @@ class Admin extends CI_Controller {
 
 		public function device_api()
 		{
-      $this->_data['subview'] = 'admin/device/index_admin_view.php';
+      $this->_data['subview'] = 'admin/account_device/index_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý thiết bị và API';
       $this->load->view('main.php', $this->_data);
 		}
@@ -177,12 +177,12 @@ class Admin extends CI_Controller {
 		{
 			$existDevice = $this->Mdevice->getById($id);
 			if ($existDevice) {
-				$this->_data['subview'] = 'admin/device/device_edit_view.php';
+				$this->_data['subview'] = 'admin/account_device/device_edit_view.php';
 	      $this->_data['titlePage'] = 'Cấp phát API cho thiết bị';
 				$this->_data['id'] = $id;
 				$this->_data['device'] = $existDevice;
 			} else {
-				$this->_data['subview'] = 'admin/device/devices_admin_view.php';
+				$this->_data['subview'] = 'admin/account_device/devices_admin_view.php';
 	      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
 				$this->_data['content'] = $this->Mdevice->getList();
 			}
@@ -193,11 +193,11 @@ class Admin extends CI_Controller {
 		{
 			$existApi = $this->Mkey->getById($id);
 			if($existApi) {
-				$this->_data['subview'] = 'admin/device/api_add_view.php';
+				$this->_data['subview'] = 'admin/account_device/api_add_view.php';
 	      $this->_data['titlePage'] = 'Cấp phát API cho thiết bị';
 				$this->_data['idApi'] = $id;
 			} else {
-				$this->_data['subview'] = 'admin/device/api_admin_view.php';
+				$this->_data['subview'] = 'admin/account_device/api_admin_view.php';
 	      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
 				$this->_data['content'] = $this->Mkey->getList();
 			}

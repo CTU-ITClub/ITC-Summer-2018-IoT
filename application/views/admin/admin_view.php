@@ -1,4 +1,12 @@
 <?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('admin',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+
   $registercount = $this->Mregister->countAll();
   $event = $this->Mevent->getList();
   $eventing = 0;
@@ -40,18 +48,7 @@
         <div class="alert alert-warning">
           <div class="form-activity">
             <div class="form-header">
-              Quản lý sự kiện
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="<?php echo base_url('admin/attendance'); ?>">
-        <div class="alert alert-success">
-          <div class="form-activity">
-            <div class="form-header">
-              Quản lý điểm danh
+              Sự kiện - Điểm danh
             </div>
           </div>
         </div>
@@ -62,47 +59,79 @@
         <div class="alert alert-danger">
           <div class="form-activity">
             <div class="form-header">
-              Quản lý tổ chức và các đơn vị
+              Phòng ban - Khoa - Viện
             </div>
           </div>
         </div>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/permissions'); ?>">
-        <div class="alert alert-success">
-          <div class="form-activity">
-            <div class="form-header">
-              Quản lý phân quyền và quyền truy cập
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="<?php echo base_url('admin/admin_account'); ?>">
+      <a href="<?php echo base_url('admin/'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">
-              Quản lý tài khoản và người dùng
+              Đoàn viên - Nhân sự
             </div>
           </div>
         </div>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/device_api'); ?>">
+      <a href="<?php echo base_url('admin/'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">
-              Quản lý thiết bị và API
+              Cơ sở Đoàn
             </div>
           </div>
         </div>
       </a>
     </div>
-    <!-- Tính năng khác -->
-    <div class="col-md-12">
+    <div class="col-md-4">
+      <a href="<?php echo base_url('admin/'); ?>">
+        <div class="alert alert-info">
+          <div class="form-activity">
+            <div class="form-header">
+              Đoàn vụ
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="<?php echo base_url('admin/'); ?>">
+        <div class="alert alert-info">
+          <div class="form-activity">
+            <div class="form-header">
+              Văn thư
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="<?php echo base_url('admin/'); ?>">
+        <div class="alert alert-info">
+          <div class="form-activity">
+            <div class="form-header">
+              Truyền thông
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="<?php echo base_url('admin/admin_account_device'); ?>">
+        <div class="alert alert-info">
+          <div class="form-activity">
+            <div class="form-header">
+              Tài khoản - Người dùng - Thiết bị
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
       <a href="<?php echo base_url('admin/analytics'); ?>">
         <div class="alert alert-warning">
           <div class="form-activity">

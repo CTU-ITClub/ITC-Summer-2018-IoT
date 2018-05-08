@@ -70,7 +70,7 @@ class Execute extends CI_Controller {
 		public function add_user(){
         if (isset($_POST['addNew'])) {
 					$data['username'] = htmlspecialchars(addslashes($_POST['uid']));
-					$data['password'] = htmlspecialchars(addslashes($_POST['pwd']));
+					$data['password'] = md5(htmlspecialchars(addslashes($_POST['pwd'])));
 					$data['email'] = htmlspecialchars(addslashes($_POST['email']));
 					$data['name'] = htmlspecialchars(addslashes($_POST['name']));
           $data['rolename'] = htmlspecialchars(addslashes($_POST['role']));
@@ -402,7 +402,7 @@ class Execute extends CI_Controller {
 					$uid = htmlspecialchars(addslashes($_POST['uid']));
 					$checkAccount = $this->Maccount->getByUsername($uid);
 					if($checkAccount['password'] == $_POST['pwd']) {
-						$data['password'] = htmlspecialchars(addslashes($_POST['pwd2']));
+						$data['password'] = md5(htmlspecialchars(addslashes($_POST['pwd2'])));
 						$this->Maccount->updateUser($data,$uid);
 						// Thông báo
 						$this->_data['subview'] = 'alert/load_alert_view';

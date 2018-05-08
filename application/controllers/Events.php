@@ -81,7 +81,7 @@ class Events extends CI_Controller {
 					$this->_data['subview'] = 'alert/load_alert_view';
 	        $this->_data['titlePage'] = 'Cảnh báo';
 	        $this->_data['type'] = 'warning';
-	        $this->_data['url'] = base_url('organizations');
+	        $this->_data['url'] = base_url('events');
 	        $this->_data['content'] = 'Không tồn tại tổ chức';
 				}
 			}
