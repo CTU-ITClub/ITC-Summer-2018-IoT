@@ -1,6 +1,6 @@
 <?php
 // Check login
-$loginStatus = $this->session->userdata('user'); 
+$loginStatus = $this->session->userdata('user');
 
 // Check role
 $sessRole = $this->session->userdata('access');
@@ -91,13 +91,24 @@ $fetchRole = explode(',',$_role);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG QUẢN LÝ ĐIỂM DANH </a>
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG QUẢN LÝ ĐOÀN THANH NIÊN</a>
       </div>
 
       <div class="collapse navbar-collapse" id="ctudocsnavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
-          <li><a href="<?php echo base_url('events/'); ?>">Sự kiện</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              Quản lý<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="">Đoàn viên</a></li>
+              <li><a href="">Cơ sở Đoàn</a></li>
+              <li><a href="">Đoàn vụ</a></li>
+            </ul>
+          </li>
+          <li><a href="<?php echo base_url('events/'); ?>">Hoạt động</a></li>
+          <li><a href="<?php echo base_url('events/'); ?>">Văn bản</a></li>
           <?php
           if(in_array('admin',$fetchRole)) {
             echo '<li><a href="'.base_url('admin/').'">Quản trị</a></li>';

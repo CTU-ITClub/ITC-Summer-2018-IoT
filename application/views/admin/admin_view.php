@@ -45,21 +45,10 @@ if(in_array('admin',$fetchRole) == FALSE) {
     <legend>Quản trị</legend>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/event'); ?>">
-        <div class="alert alert-warning">
-          <div class="form-activity">
-            <div class="form-header">
-              Sự kiện - Điểm danh
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-4">
-      <a href="<?php echo base_url('admin/organizations'); ?>">
         <div class="alert alert-danger">
           <div class="form-activity">
             <div class="form-header">
-              Phòng ban - Khoa - Viện
+              Sự kiện - Điểm danh
             </div>
           </div>
         </div>
@@ -89,7 +78,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
     </div>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/'); ?>">
-        <div class="alert alert-info">
+        <div class="alert alert-warning">
           <div class="form-activity">
             <div class="form-header">
               Đoàn vụ
@@ -111,10 +100,21 @@ if(in_array('admin',$fetchRole) == FALSE) {
     </div>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/'); ?>">
-        <div class="alert alert-info">
+        <div class="alert alert-success">
           <div class="form-activity">
             <div class="form-header">
               Truyền thông
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="<?php echo base_url('admin/organizations'); ?>">
+        <div class="alert alert-info">
+          <div class="form-activity">
+            <div class="form-header">
+              Phòng ban - Khoa - Viện
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
     </div>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/analytics'); ?>">
-        <div class="alert alert-warning">
+        <div class="alert alert-danger">
           <div class="form-activity">
             <div class="form-header">
               Báo cáo thống kê
