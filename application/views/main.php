@@ -43,6 +43,13 @@ $fetchRole = explode(',',$_role);
        }
      });
    });
+   $(document).ready(function () {
+       $('.datatables').DataTable({
+         "language" : {
+           "url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Vietnamese.json"
+       }
+     });
+   });
    </script>
 
    <!-- JSTree 3.3.4 -->

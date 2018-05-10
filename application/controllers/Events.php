@@ -44,14 +44,15 @@ class Events extends CI_Controller {
 
 		public function org($id = null, $status = null)
 		{
+			$this->_data['org'] = $id;
+			$this->_data['event'] = $this->Mevent->getByOrg($id);
 			$getOrg = $this->Morg->getOrgById($id);
+			$this->_data['name'] = $getOrg['text'];
       if($status == 'all') {
 				$isExistOrg = $this->Mevent->getByOrg($id);
 	      if ($isExistOrg) {
 					$this->_data['subview'] = 'dontlogin/events_org_view';
 		      $this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
-					$this->_data['contentPage'] = $isExistOrg;
-		      $this->_data['nameOrg'] = $this->Morg->getOrgById($id);
 				} else {
 					$this->_data['subview'] = 'alert/load_alert_view';
 	        $this->_data['titlePage'] = 'Cảnh báo';
@@ -69,14 +70,9 @@ class Events extends CI_Controller {
 					$this->_data['subview'] = 'dontlogin/events_org_detail_view';
 					$this->_data['titlePage'] = 'Chi tiết tổ chức';
 
-					$this->_data['event'] = $this->Mevent->getByOrg($id);
-
-					$this->_data['org'] = $id;
-		      $this->_data['name'] = $getOrg['text'];
 					$this->_data['parent_name'] = $parent['text'];
 					$this->_data['parent_id'] = $parent['id'];
 					$this->_data['description'] = $getOrg['description'];
-					$this->load->view('main.php', $this->_data);
 				} else {
 					$this->_data['subview'] = 'alert/load_alert_view';
 	        $this->_data['titlePage'] = 'Cảnh báo';
