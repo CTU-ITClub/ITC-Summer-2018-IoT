@@ -48,7 +48,7 @@ class Events extends CI_Controller {
 			$this->_data['event'] = $this->Mevent->getByOrg($id);
 			$getOrg = $this->Morg->getOrgById($id);
 			$this->_data['name'] = $getOrg['text'];
-      if($status == 'all') {
+      if($status == 'activities') {
 				$isExistOrg = $this->Mevent->getByOrg($id);
 	      if ($isExistOrg) {
 					$this->_data['subview'] = 'dontlogin/events_org_view';
@@ -60,6 +60,9 @@ class Events extends CI_Controller {
 	        $this->_data['url'] = base_url('events');
 	        $this->_data['content'] = 'Access Denied';
 				}
+			} else if($status == 'affiliated') {
+					$this->_data['subview'] = 'dontlogin/events_org_child_view';
+					$this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
 			} else {
 				if ($getOrg) {
 					if ($getOrg['parent'] == $getOrg['id']) {
@@ -84,15 +87,22 @@ class Events extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function res()
+		public function res($idparent = null)
 		{
 				header('Content-Type: application/json;charset=utf-8');
-				$content = $this->Morg->getList();
+				if ($idparent != null) {
+					// $content = $this->Morg->getList($where,$value);
+					$content = $this->Morg->getChildById($idparent);
+				} else $content = $this->Morg->getList();
+
 				foreach ($content as $key => $row) {
 						if ($row['parent'] == 0) {
 								$parent = '#';
 								$open = true;
 						} else if ($row['parent'] == $row['id']) {
+								$parent = '#';
+								$open = true;
+						} else if ($where = 'id') {
 								$parent = '#';
 								$open = true;
 						} else {

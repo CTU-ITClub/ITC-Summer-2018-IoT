@@ -27,7 +27,7 @@
           if ($isShow == 1) {
             echo '<td><b><span style="color:red">Trong ngày</span></b></td>';
           } else if ($isShow == 2) {
-            echo '<td><span style="color:lime">Trong tuần</span></td>';
+            echo '<td><b><span style="color:lime">Trong tuần</span></b></td>';
           }
           echo '</tr>';
         }

@@ -53,7 +53,7 @@
               if ($isShow == 1) {
                 echo '<td><b><span style="color:red">Trong ngày</span></b></td>';
               } else if ($isShow == 2) {
-                echo '<td><span style="color:lime">Trong tuần</span></td>';
+                echo '<td><b><span style="color:lime">Trong tuần</span></b></td>';
               } else if ($isShow == 3) {
                 echo '<td><span style="color:blue">Sắp diễn ra</span></td>';
               } else if ($isShow == 0) {

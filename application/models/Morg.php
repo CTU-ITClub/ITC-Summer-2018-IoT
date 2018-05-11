@@ -1,15 +1,15 @@
 <?php
-class Morg extends CI_Model{
+class Morg extends CI_Model {
     protected $_table = 'organizations';
 
     public function __construct(){
         parent::__construct();
     }
 
-    public function getList($where = null, $id = null){
+    public function getList($where = null, $value = null){
         $this->db->select('*');
-        if ($where && $id) {
-            $this->db->where($where, $id);
+        if ($where && $value) {
+            $this->db->where($where, $value);
         }
         return $this->db->get($this->_table)->result_array();
     }
@@ -23,10 +23,28 @@ class Morg extends CI_Model{
         return $this->db->get($this->_table)->row_array();
     }
 
-    public function getParentById($idparent){
+    // public function getParentById($idparent){
+    //     $this->db->where("id", $idparent);
+    //     $this->db->order_by("parent","asc");
+    //     return $this->db->get($this->_table)->row_array();
+    // }
+
+    public function getChildById($idparent){
         $this->db->where("id", $idparent);
-        $this->db->order_by("parent","asc");
-        return $this->db->get($this->_table)->row_array();
+        $parentInfo = $this->db->get($this->_table)->result_array();
+        $num_rows_list = $query->num_rows();
+        if ($num_rows_list <= 0) {
+          return $this->db->get($this->_table)->row_array();
+        } else {
+          $org_arr = array();
+          $org = $this->Morg->getOrgById($idparent);
+          $num_rows_id = $query->num_rows();
+          if($num_rows_id == $num_rows_list) {
+            return $org_arr;
+          } else {
+            foreach ($org as $key => $row) array_push($org_arr,$row);
+          }
+        }
     }
 
     public function insertOrg($data_insert){

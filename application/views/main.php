@@ -98,7 +98,7 @@ $fetchRole = explode(',',$_role);
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG QUẢN LÝ ĐOÀN THANH NIÊN</a>
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"> QUẢN LÝ ĐOÀN THANH NIÊN</a>
       </div>
 
       <div class="collapse navbar-collapse" id="ctudocsnavbar">

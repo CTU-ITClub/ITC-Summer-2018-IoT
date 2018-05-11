@@ -3,8 +3,8 @@
   <hr>
   <ul class="nav nav-tabs">
     <li class="active"><a href="<?php echo base_url('/events/org/'.$org.'/')?>">Tổng quan</a></li>
-    <li><a href="<?php echo base_url('/events/org/'.$org.'/all')?>">Hoạt động</a></li>
-    <!-- <li><a href="#">Menu 2</a></li> -->
+    <li><a href="<?php echo base_url('/events/org/'.$org.'/activities')?>">Hoạt động</a></li>
+    <li><a href="<?php echo base_url('/events/org/'.$org.'/affiliated')?>">Đơn vị trực thuộc</a></li>
   </ul>
   <div class="row">
     <div class="col-md-4">
