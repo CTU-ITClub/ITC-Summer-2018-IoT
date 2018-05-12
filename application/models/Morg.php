@@ -1,6 +1,7 @@
 <?php
 class Morg extends CI_Model {
     protected $_table = 'organizations';
+    protected $_arr = array();
 
     public function __construct(){
         parent::__construct();
@@ -8,7 +9,7 @@ class Morg extends CI_Model {
 
     public function getList($where = null, $value = null){
         $this->db->select('*');
-        if ($where && $value) {
+        if ($where != null) {
             $this->db->where($where, $value);
         }
         return $this->db->get($this->_table)->result_array();
@@ -23,27 +24,43 @@ class Morg extends CI_Model {
         return $this->db->get($this->_table)->row_array();
     }
 
-    // public function getParentById($idparent){
-    //     $this->db->where("id", $idparent);
-    //     $this->db->order_by("parent","asc");
-    //     return $this->db->get($this->_table)->row_array();
-    // }
+    public function getChildNumRows($idparent){
+        $findChild = $this->db->query("SELECT * FROM $this->_table WHERE parent = '$idparent'");
+        return $findChild->num_rows();
+    }
 
-    public function getChildById($idparent){
-        $this->db->where("id", $idparent);
-        $parentInfo = $this->db->get($this->_table)->result_array();
-        $num_rows_list = $query->num_rows();
-        if ($num_rows_list <= 0) {
-          return $this->db->get($this->_table)->row_array();
-        } else {
-          $org_arr = array();
-          $org = $this->Morg->getOrgById($idparent);
-          $num_rows_id = $query->num_rows();
-          if($num_rows_id == $num_rows_list) {
-            return $org_arr;
-          } else {
-            foreach ($org as $key => $row) array_push($org_arr,$row);
+    public function getListChildByOrg($idparent) {
+        // Tim kiem nut la ke
+        foreach ($this->getList('parent',$idparent) as $key => $value) {
+          if($value['id'] != $idparent) {
+            // Chen nut la
+            array_push($this->_arr,$value);
+            $data[] = $value['id'];
           }
+        }
+
+        foreach ($data as $key => $id) {
+          if($this->getChildNumRows($id) > 0) {
+            return $this->getListChildByOrg($id);
+          } else {
+            return $this->_arr;
+          }
+        }
+    }
+
+    public function getListOrgById($idparent) {
+        // Chen nut goc
+        foreach ($this->getList('id',$idparent) as $key => $value) {
+          array_push($this->_arr,$value);
+        }
+
+        if($this->getChildNumRows($idparent) > 0) {
+          // foreach ($this->getList('parent',$idparent) as $key => $value) {
+          //   return $this->getListChildByOrg($value['id']);
+            return $this->getListChildByOrg($idparent);
+          // }
+        } else {
+          return $this->_arr;
         }
     }
 

@@ -11,7 +11,7 @@ class Index extends CI_Controller {
 
 		public function index()
 		{
-      $this->_data['subview'] = 'dontlogin/index_view';
+      $this->_data['subview'] = 'sites/index_view';
       $this->_data['titlePage'] = 'Trang chủ';
       $this->_data['content'] = $this->Mevent->getList();
       $this->load->view('main.php', $this->_data);

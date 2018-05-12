@@ -13,7 +13,7 @@ class Test extends CI_Controller {
 
     public function index()
 		{
-      $this->_data['subview'] = 'dontlogin/frm';
+      $this->_data['subview'] = 'sites/frm';
       $this->_data['titlePage'] = 'Test API';
       $this->load->view('main.php', $this->_data);
 		}

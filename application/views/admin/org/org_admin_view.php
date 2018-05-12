@@ -30,9 +30,13 @@ if(in_array('organization',$fetchRole) == FALSE) {
           $name = $row['text'];
           echo '<tr>
             <td>'.$stt.'</td>
-            <td>'.$name.'</td>
-            <td>'.$parent['text'].'</td>
-            <td>'.$row['description'].'</td>
+            <td>'.$name.'</td>';
+            if(!$parent['text']) {
+              echo '<td>'.$name.'</td>';
+            } else {
+              echo '<td>'.$parent['text'].'</td>';
+            }
+            echo '<td>'.$row['description'].'</td>
             <td>
               <button class="btn btn-primary edit-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
               <button class="btn btn-danger delete-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
