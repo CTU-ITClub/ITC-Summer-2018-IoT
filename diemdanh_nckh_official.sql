@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.4.15.9
+-- https://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 26, 2017 at 12:34 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Host: localhost
+-- Generation Time: May 14, 2018 at 09:33 AM
+-- Server version: 5.6.37
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `diemdanh_nckh`
+-- Database: `nckh`
 --
 
 -- --------------------------------------------------------
@@ -28,27 +26,27 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-CREATE TABLE `account` (
+CREATE TABLE IF NOT EXISTS `account` (
   `id` int(5) NOT NULL,
   `username` char(255) COLLATE utf8_unicode_ci NOT NULL,
-  `password` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  `password` char(32) COLLATE utf8_unicode_ci NOT NULL,
   `email` char(75) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` char(128) COLLATE utf8_unicode_ci DEFAULT NULL,
   `rolename` char(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`, `rolename`) VALUES
-(1, 'admin', '1234', 'admin@ctu.edu.vn', 'Quản trị viên', 'admin'),
-(2, 'ntduy', '1234', 'ntduy@ctu.edu.vn', 'Nguyễn Thanh Duy', 'manager'),
-(3, 'phuocthanh', '1234', 'phuocthanh@ctu.edu.vn', 'Lâm Phước Thành', 'manager'),
-(4, 'hploc', '1234', 'hploc@ctu.edu.vn', 'Huỳnh Phúc Lộc', 'admin'),
-(5, 'quanbao', '1234', 'baob1507712@ctu.edu.vn', 'Trương Quân Bảo', 'user'),
-(6, 'ngthuc', '1234', 'thucb1400731@student.ctu.edu.vn', 'Lê Nguyên Thức', 'user'),
-(7, 'ngochuy', '1234', 'huyb1507332@student.ctu.edu.vn', 'Trần Ngọc Huy', 'user');
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@ctu.edu.vn', 'Quản trị viên', 'admin'),
+(2, 'ntduy', '21232f297a57a5a743894a0e4a801fc3', 'ntduy@ctu.edu.vn', 'Nguyễn Thanh Duy', 'manager'),
+(3, 'phuocthanh', '21232f297a57a5a743894a0e4a801fc3', 'phuocthanh@ctu.edu.vn', 'Lâm Phước Thành', 'manager'),
+(4, 'hploc', '21232f297a57a5a743894a0e4a801fc3', 'hploc@ctu.edu.vn', 'Huỳnh Phúc Lộc', 'admin'),
+(5, 'quanbao', '21232f297a57a5a743894a0e4a801fc3', 'baob1507712@ctu.edu.vn', 'Trương Quân Bảo', 'user'),
+(6, 'ngthuc', '21232f297a57a5a743894a0e4a801fc3', 'thucb1400731@student.ctu.edu.vn', 'Lê Nguyên Thức', 'user'),
+(7, 'ngochuy', '21232f297a57a5a743894a0e4a801fc3', 'huyb1507332@student.ctu.edu.vn', 'Trần Ngọc Huy', 'user');
 
 -- --------------------------------------------------------
 
@@ -56,11 +54,11 @@ INSERT INTO `account` (`id`, `username`, `password`, `email`, `name`, `rolename`
 -- Table structure for table `apikey`
 --
 
-CREATE TABLE `apikey` (
+CREATE TABLE IF NOT EXISTS `apikey` (
   `id` int(5) NOT NULL,
   `statusApi` int(1) NOT NULL DEFAULT '1',
   `encriptApi` char(30) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `apikey`
@@ -84,13 +82,13 @@ INSERT INTO `apikey` (`id`, `statusApi`, `encriptApi`) VALUES
 -- Table structure for table `attendance`
 --
 
-CREATE TABLE `attendance` (
+CREATE TABLE IF NOT EXISTS `attendance` (
   `id` int(20) NOT NULL,
   `idEvent` int(20) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `timeIn` datetime DEFAULT NULL,
   `timeOut` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `attendance`
@@ -110,11 +108,11 @@ INSERT INTO `attendance` (`id`, `idEvent`, `idCard`, `timeIn`, `timeOut`) VALUES
 -- Table structure for table `department`
 --
 
-CREATE TABLE `department` (
+CREATE TABLE IF NOT EXISTS `department` (
   `id` int(5) NOT NULL,
   `nameDepartment` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `idFaculty` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `department`
@@ -137,13 +135,13 @@ INSERT INTO `department` (`id`, `nameDepartment`, `idFaculty`) VALUES
 -- Table structure for table `devices`
 --
 
-CREATE TABLE `devices` (
+CREATE TABLE IF NOT EXISTS `devices` (
   `id` int(5) NOT NULL,
   `name` varchar(255) NOT NULL,
   `serialnumber` char(50) DEFAULT NULL,
   `registerdate` date NOT NULL,
   `idApi` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `devices`
@@ -153,7 +151,7 @@ INSERT INTO `devices` (`id`, `name`, `serialnumber`, `registerdate`, `idApi`) VA
 (1, 'TNTN_M_001', '25852085245SNL', '2017-12-21', 1),
 (2, 'TNTN_M_002', '25852085245SNL', '2017-12-21', 2),
 (3, 'TNTN_M_003', '25852085245SNL', '2017-12-21', 3),
-(4, 'TNTN_M_004', '25852085245SNL', '2017-12-21', NULL);
+(4, 'TNTN_M_004', '25852085245SNL', '2017-12-21', 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +159,7 @@ INSERT INTO `devices` (`id`, `name`, `serialnumber`, `registerdate`, `idApi`) VA
 -- Table structure for table `event`
 --
 
-CREATE TABLE `event` (
+CREATE TABLE IF NOT EXISTS `event` (
   `id` int(20) NOT NULL,
   `nameEvent` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `timeStart` time NOT NULL,
@@ -171,22 +169,22 @@ CREATE TABLE `event` (
   `descriptionEvent` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
   `userCreator` char(255) COLLATE utf8_unicode_ci NOT NULL,
   `idOrg` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`id`, `nameEvent`, `timeStart`, `timeEnd`, `dateEvent`, `locationEvent`, `descriptionEvent`, `userCreator`, `idOrg`) VALUES
-(1, 'Khám phá tri thức CNTT 2017 - Buổi 1', '07:30:00', '10:30:00', '2017-12-07', 'Hội trường lớn', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 1),
-(2, 'Khám phá tri thức CNTT 2017 - Buổi 2', '14:30:00', '16:30:00', '2017-12-07', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
-(3, 'Khám phá tri thức CNTT 2017 - Buổi 3', '07:30:00', '10:30:00', '2017-12-08', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
-(4, 'Khám phá tri thức CNTT 2017 - Buổi 4', '14:30:00', '16:30:00', '2017-12-08', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
-(5, 'Test1', '08:00:00', '11:00:00', '2017-12-27', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 5),
-(6, 'Test2', '15:35:00', '23:00:00', '2017-12-28', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 6),
-(7, 'Test3', '22:30:00', '23:00:00', '2017-12-27', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 7),
-(8, 'Test4', '22:00:00', '23:00:00', '2017-12-21', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 7),
-(9, 'Khám phá tri thức 1', '07:30:00', '10:30:00', '2017-12-07', 'Hội trường lớn', 'Khám phá tri thức 2017', 'admin', 1),
+(1, 'Khám phá tri thức CNTT 2017 - Buổi 1', '07:30:00', '10:30:00', '2018-12-07', 'Hội trường lớn', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 1),
+(2, 'Khám phá tri thức CNTT 2017 - Buổi 2', '14:30:00', '16:30:00', '2018-12-07', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
+(3, 'Khám phá tri thức CNTT 2017 - Buổi 3', '07:30:00', '10:30:00', '2018-12-08', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
+(4, 'Khám phá tri thức CNTT 2017 - Buổi 4', '14:30:00', '16:30:00', '2018-05-16', 'Hội trường 2, khoa CNTT&TT', 'Tuần lễ Khám phá tri thức CNTT năm 2017', 'admin', 4),
+(5, 'Test1', '08:00:00', '11:00:00', '2018-05-11', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 5),
+(6, 'Test2', '15:35:00', '23:00:00', '2018-05-11', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 6),
+(7, 'Test3', '22:30:00', '23:00:00', '2018-05-11', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 7),
+(8, 'Test4', '22:00:00', '23:00:00', '2018-05-15', 'Hội trường 2 - khoa CNTT&TT', 'Thử nghiệm', 'admin', 7),
+(9, 'Khám phá tri thức 1', '07:30:00', '10:30:00', '2018-12-07', 'Hội trường lớn', 'Khám phá tri thức 2017', 'admin', 1),
 (10, 'Thăm quan công ty SPS', '06:00:00', '15:00:00', '2018-01-12', 'Công ty SPS, TPHCM', 'Thăm quan công ty cho sinh viên năm thứ 3 - 4', 'admin', 1),
 (11, 'Thăm quan công ty SPS', '06:00:00', '15:00:00', '2018-01-12', 'Công ty SPS, TPHCM', 'Thăm quan công ty cho sinh viên năm thứ 3 - 4', 'admin', 7);
 
@@ -196,11 +194,11 @@ INSERT INTO `event` (`id`, `nameEvent`, `timeStart`, `timeEnd`, `dateEvent`, `lo
 -- Table structure for table `faculty`
 --
 
-CREATE TABLE `faculty` (
+CREATE TABLE IF NOT EXISTS `faculty` (
   `id` int(5) NOT NULL,
   `idFaculty` char(10) NOT NULL,
   `nameFaculty` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `faculty`
@@ -231,12 +229,12 @@ INSERT INTO `faculty` (`id`, `idFaculty`, `nameFaculty`) VALUES
 -- Table structure for table `major`
 --
 
-CREATE TABLE `major` (
+CREATE TABLE IF NOT EXISTS `major` (
   `id` int(5) NOT NULL,
   `idMajor` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `nameMajor` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `idFaculty` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `major`
@@ -256,30 +254,30 @@ INSERT INTO `major` (`id`, `idMajor`, `nameMajor`, `idFaculty`) VALUES
 -- Table structure for table `organizations`
 --
 
-CREATE TABLE `organizations` (
+CREATE TABLE IF NOT EXISTS `organizations` (
   `id` int(5) NOT NULL,
-  `parent` int(5) NOT NULL DEFAULT '0',
+  `parent` char(5) NOT NULL DEFAULT '0',
   `text` varchar(255) NOT NULL,
   `description` char(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `organizations`
 --
 
 INSERT INTO `organizations` (`id`, `parent`, `text`, `description`) VALUES
-(1, 1, 'Trường Đại học Cần Thơ', 'Trường Đại học vùng trọng điểm Quốc gia'),
-(2, 2, 'Đoàn trường Đại học Cần Thơ', 'Đoàn tương đương cấp Quận/Huyện'),
-(3, 3, 'Hội Sinh viên trường Đại học Cần Thơ', 'Trực thuộc Hội Sinh viên Thành phố Cần Thơ'),
-(4, 2, 'Đoàn khoa CNTT&TT', 'Đoàn cơ sở trực thuộc Đoàn trường Đại học Cần Thơ'),
-(5, 3, 'Liên Chi hội Sinh viên Cần Thơ', 'Liên Chi hội theo tỉnh thành trực thuộc Hội sinh viên trường Đại học Cần Thơ'),
-(6, 1, 'Trung tâm Học liệu', 'Thư viện học liệu, trung tâm trực thuộc trường Đại học Cần Thơ'),
-(7, 4, 'CLB Tin học', 'CLB học thuật trực thuộc Đoàn khoa CNTT&TT'),
-(8, 4, 'Đội Thanh niên Tình nguyện', 'Lực lượng sinh viên tình nguyện trực thuộc Đoàn khoa CNTT&TT'),
-(9, 9, 'Đảng ủy trường Đại học Cần Thơ', 'Quản lý công tác Đảng viên tại Đảng bộ trường Đại học Cần Thơ'),
-(10, 1, 'Khoa CNTT&amp;TT', 'Khoa đào tạo các chuyên ngành về Công nghệ thông tin và truyền thông'),
-(11, 11, 'Công đoàn trường Đại học Cần Thơ', 'Tổ chức của công chức viên chức trường Đại học Cần Thơ'),
-(12, 9, 'Đảng ủy khoa CNTT&TT', 'Tổ chức Đảng của khoa CNTT&TT');
+(1, '#', 'Trường Đại học Cần Thơ', 'Trường Đại học vùng trọng điểm Quốc gia'),
+(2, '#', 'Đoàn trường Đại học Cần Thơ', 'Đoàn tương đương cấp Quận/Huyện'),
+(3, '#', 'Hội Sinh viên trường Đại học Cần Thơ', 'Trực thuộc Hội Sinh viên Thành phố Cần Thơ'),
+(4, '2', 'Đoàn khoa CNTT&TT', 'Đoàn cơ sở trực thuộc Đoàn trường Đại học Cần Thơ'),
+(5, '3', 'Liên Chi hội Sinh viên Cần Thơ', 'Liên Chi hội theo tỉnh thành trực thuộc Hội sinh viên trường Đại học Cần Thơ'),
+(6, '1', 'Trung tâm Học liệu', 'Thư viện học liệu, trung tâm trực thuộc trường Đại học Cần Thơ'),
+(7, '4', 'CLB Tin học', 'CLB học thuật trực thuộc Đoàn khoa CNTT&TT'),
+(8, '4', 'Đội Thanh niên Tình nguyện', 'Lực lượng sinh viên tình nguyện trực thuộc Đoàn khoa CNTT&TT'),
+(9, '#', 'Đảng ủy trường Đại học Cần Thơ', 'Quản lý công tác Đảng viên tại Đảng bộ trường Đại học Cần Thơ'),
+(10, '1', 'Khoa CNTT&amp;TT', 'Khoa đào tạo các chuyên ngành về Công nghệ thông tin và truyền thông'),
+(11, '#', 'Công đoàn trường Đại học Cần Thơ', 'Tổ chức của công chức viên chức trường Đại học Cần Thơ'),
+(12, '9', 'Đảng ủy khoa CNTT&TT', 'Tổ chức Đảng của khoa CNTT&TT');
 
 -- --------------------------------------------------------
 
@@ -287,7 +285,7 @@ INSERT INTO `organizations` (`id`, `parent`, `text`, `description`) VALUES
 -- Table structure for table `register`
 --
 
-CREATE TABLE `register` (
+CREATE TABLE IF NOT EXISTS `register` (
   `id` int(20) NOT NULL,
   `personalID` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `idEvent` int(20) NOT NULL
@@ -299,12 +297,12 @@ CREATE TABLE `register` (
 -- Table structure for table `rfid`
 --
 
-CREATE TABLE `rfid` (
+CREATE TABLE IF NOT EXISTS `rfid` (
   `id` int(5) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `personalID` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isStudent` int(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `rfid`
@@ -328,23 +326,24 @@ INSERT INTO `rfid` (`id`, `idCard`, `personalID`, `isStudent`) VALUES
 -- Table structure for table `roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `idRole` int(12) NOT NULL,
   `roleName` varchar(255) NOT NULL,
   `rolesGroup` longtext NOT NULL,
   `roleDesc` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`idRole`, `roleName`, `rolesGroup`, `roleDesc`) VALUES
-(1, 'Owner', 'fullcontrol,device,borrowDevice,members,project,labs,profile,search,dashboard,account,mailCP,urlCP,addDevice,removeDevice,addMember,removeMember,addProject,removeProject,addLabs,removeLab,addPartner,removePartner,deviceCP,borrowDeviceCP,membersCP,projectCP,labsCP,producerCP,imagesCP,rolesCP,profileCP,rolesAD,settingCP', 'Tất cả quyền'),
-(2, 'Admin', 'device,borrowDevice,members,project,labs,profile,search,dashboard,addDevice,removeDevice,addMember,removeMember,addProject,removeProject,addLabs,removeLab,addPartner,removePartner,deviceCP,borrowDeviceCP,membersCP,projectCP,labsCP,producerCP,imagesCP,rolesCP,profileCP', 'Tất cả quyền (trừ quyền cài đặt và quản lý nhóm quyền)'),
-(3, 'User', 'device,borrowDevice,members,project,labs,profile,search', 'Chỉ nhóm quyền xem và không truy cập AdminCP'),
-(4, 'Manager', 'device,borrowDevice,members,project,labs,profile,search,dashboard,addDevice,addMember,addProject,addLabs,addPartner,deviceCP,borrowDeviceCP,membersCP,projectCP,labsCP,producerCP', 'Nhóm quyền xem, quyền quản lý cơ bản'),
-(6, 'Deny', 'profile', 'Bị cấm toàn hệ thống');
+(1, 'owner', 'admin,report,newEvent,event,attendance,organization,identification,role,account,remove,device', 'Tất cả quyền'),
+(2, 'admin', 'admin,report,newEvent,event,attendance,organization,identification,role,account,remove,device', 'Tất cả quyền (trừ quyền cài đặt và quản lý nhóm quyền)'),
+(3, 'user', '', 'Chỉ nhóm quyền xem và không truy cập AdminCP'),
+(4, 'manager', '', 'Nhóm quyền xem, quyền quản lý cơ bản'),
+(6, 'deny', '', 'Bị cấm toàn hệ thống'),
+(7, 'sso_default', 'admin,report,newEvent', 'Nhóm quyền mặc định cho người dùng truy cập bằng dịch vụ Single Sign-On');
 
 -- --------------------------------------------------------
 
@@ -352,13 +351,13 @@ INSERT INTO `roles` (`idRole`, `roleName`, `rolesGroup`, `roleDesc`) VALUES
 -- Table structure for table `staff`
 --
 
-CREATE TABLE `staff` (
+CREATE TABLE IF NOT EXISTS `staff` (
   `id` int(5) NOT NULL,
   `staffID` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `firstNameStaff` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `lastNameStaff` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `idDepartment` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `staff`
@@ -377,13 +376,13 @@ INSERT INTO `staff` (`id`, `staffID`, `firstNameStaff`, `lastNameStaff`, `idDepa
 -- Table structure for table `student`
 --
 
-CREATE TABLE `student` (
+CREATE TABLE IF NOT EXISTS `student` (
   `id` int(5) NOT NULL,
   `studentID` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `firstNameStudent` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `lastNameStudent` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
   `idMajor` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `student`
@@ -499,86 +498,72 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `apikey`
 --
 ALTER TABLE `apikey`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `devices`
 --
 ALTER TABLE `devices`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `major`
 --
 ALTER TABLE `major`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `rfid`
 --
 ALTER TABLE `rfid`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `idRole` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `idRole` int(12) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --
@@ -607,7 +592,6 @@ ALTER TABLE `staff`
 --
 ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`idMajor`) REFERENCES `major` (`idMajor`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
