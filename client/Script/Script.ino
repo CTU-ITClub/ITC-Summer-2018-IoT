@@ -84,15 +84,15 @@ void setup() {
  lcd.print("Da san sang");
  delay(500);
  lcd.clear();
- lcd.setCursor(0,0);
+ lcd.setCursor(2,0);
  lcd.print("Moi Quet The");
- lcd.setCursor(0,1);
- lcd.print("Scan your Card");
 }
  
 void loop() {
   if(RFID.isIdAvailable()) {
    tag = RFID.readId();
+   lcd.setCursor(0,1);
+   lcd.print(tag);
    sprintf(chuoi, "%d", tag);
    datasv["idCard"]= int (tag);
 //   datasv["DeviceID"] = ("Client01");
