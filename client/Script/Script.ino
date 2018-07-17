@@ -2,6 +2,7 @@
 #include <ESP8266WiFi.h>
 #include <RDM6300.h>
 #include <ArduinoJson.h>
+#include <LiquidCrystal_I2C.h>
 
 #define ssid  "PKOVER_Wifi"
 #define pass  "01678911202"
@@ -14,6 +15,7 @@
 
 int tag;
 char chuoi[11];
+LiquidCrystal_I2C lcd(0x3F, 16, 2); // Khai bao LCD
 
 RDM6300 RFID(RFID_RX_PIN, RFID_TX_PIN);
 
@@ -54,6 +56,10 @@ void thatbai(){
 void setup() {
  
   Serial.begin(115200);                                  //Serial connection
+  lcd.begin();
+  lcd.backlight(); 
+  lcd.setCursor(0,0);
+  lcd.print("Dang Ket Noi....");
   WiFi.begin(ssid, pass);   //WiFi connection
  
   while (WiFi.status() != WL_CONNECTED) {  //Wait for the WiFI connection completion
@@ -63,6 +69,22 @@ void setup() {
   }
  Serial.println(WiFi.localIP());
  Serial.println("WIFI Connected");
+ lcd.setCursor(0,0);
+ lcd.print("Da ket noi");
+ lcd.setCursor(0,1);
+ lcd.print("IP:");
+ lcd.setCursor(4,1);
+ lcd.print(WiFi.localIP());
+ delay(500);
+ lcd.clear();
+ lcd.setCursor(0,0);
+ lcd.print("Da san sang");
+ delay(500);
+ lcd.clear();
+ lcd.setCursor(0,0);
+ lcd.print("Moi Quet The");
+ lcd.setCursor(0,1);
+ lcd.print("Scan your Card");
 }
  
 void loop() {
