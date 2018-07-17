@@ -25,10 +25,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rfid`
+-- Table structure for table `card`
 --
 
-CREATE TABLE `rfid` (
+CREATE TABLE `card` (
   `id` int(5) NOT NULL,
   `idCard` char(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `identification` char(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -36,14 +36,14 @@ CREATE TABLE `rfid` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `rfid`
+-- Dumping data for table `card`
 --
 
-INSERT INTO `rfid` (`id`, `idCard`, `identification`, `isStudent`) VALUES
-(1, '0007101235', '002356', 0),
-(2, '0009497179', '002321', 0),
-(3, '0001843075', '001232', 0),
-(4, '0007116751', '002354', 0),
+INSERT INTO `card` (`id`, `idCard`, `identification`, `isStudent`) VALUES
+(1, '0007101235', 'Tag 3', 0),
+(2, '0009497179', 'Car''key', 0),
+(3, '0001843075', 'Wallet', 0),
+(4, '0007116751', 'B1400731', 0),
 (5, '0004624308', 'B1400731', 0);
 
 --
@@ -51,9 +51,9 @@ INSERT INTO `rfid` (`id`, `idCard`, `identification`, `isStudent`) VALUES
 --
 
 --
--- Indexes for table `rfid`
+-- Indexes for table `card`
 --
-ALTER TABLE `rfid`
+ALTER TABLE `card`
   ADD PRIMARY KEY (`id`,`idCard`);
 COMMIT;
 
