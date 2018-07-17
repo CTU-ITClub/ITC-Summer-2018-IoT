@@ -52,6 +52,14 @@ void thatbai(){
   delay(200);
   digitalWrite(redled, LOW);
 }
+
+void lcd(){
+ lcd.clear();
+ lcd.setCursor(0,0);
+ lcd.print("Moi Quet The");
+ lcd.setCursor(0,1);
+ lcd.print("Scan your Card");
+}
  
 void setup() {
  
@@ -97,6 +105,7 @@ void loop() {
    char JSONmessageBuffer[300];
     datasv.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
     Serial.println(JSONmessageBuffer);
+  if(WiFi.status() == WL_CONNECTED){
     HTTPClient http;    //Declare object of class HTTPClient
     
     http.begin("http://192.168.43.178:10110/card/req");      //Specify request destination
@@ -109,9 +118,12 @@ void loop() {
    
    http.end();  //Close connection
    thanhcong();
-   Serial.println("Thanh cong");
+   Serial.println("Gui du lieu len may chu thanh cong");
   }
-
+  else  
+  thatbai();
+  Serial.println("Gui du lieu len may chu that bai");
+  
 }
 
 
