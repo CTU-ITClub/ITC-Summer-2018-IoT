@@ -6,7 +6,7 @@
 #define ssid  "PKOVER_Wifi"
 #define pass  "01678911202"
 
-#define RFID_RX_PIN 4
+#define RFID_RX_PIN 4  //RFID Reader Pin 4
 #define RFID_TX_PIN 1
 #define coi 1         //coi
 #define greenled 16    // Den Xanh
@@ -57,11 +57,11 @@ void setup() {
   WiFi.begin(ssid, pass);   //WiFi connection
  
   while (WiFi.status() != WL_CONNECTED) {  //Wait for the WiFI connection completion
- 
     delay(500);
-    Serial.println("Waiting for connection");
+    Serial.println("Dang ket noi");
  
   }
+ Serial.println(WiFi.localIP());
  Serial.println("WIFI Connected");
 }
  
@@ -70,6 +70,7 @@ void loop() {
    tag = RFID.readId();
    sprintf(chuoi, "%d", tag);
    datasv["idCard"]= int (tag);
+   datasv["DeviceID"] = ("Client01");
  
    char JSONmessageBuffer[300];
     datasv.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
