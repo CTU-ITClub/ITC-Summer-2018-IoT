@@ -54,10 +54,10 @@ router.post('/req',function(req,res,next){
     } else{
       if(rows.length > 0){
         endUser = rows[0]['identification'];
-        var data = '{"idCard":"' + received.idCard + '","endUser":"' + endUser + '"}';
-        resjson = JSON.parse(data);
-        res.json(resjson);
-        console.log("Card " + resjson.idCard + " of " + resjson.endUser);
+        var string = '{"idCard":"' + received.idCard + '","endUser":"' + endUser + '"}';
+        data = JSON.parse(string);
+        res.json(data);
+        console.log("Card " + data.idCard + " of " + data.endUser);
       }
     }
   })
