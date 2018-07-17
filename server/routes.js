@@ -60,6 +60,6 @@ router.post('/req',function(req,res,next){
         console.log("Card " + data.idCard + " of " + data.endUser);
       }
     }
-  })
+  });
 });
 module.exports=router;
