@@ -16,3 +16,4 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 server/conn.js
+server/conn.js
