@@ -10,6 +10,13 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 - Edit field: $config['base_url'] (line 27) as localhost/host ip or address
 - View at address/ip like base_url
 
+## Note
+### Database connect
+* host:'sv.hoangthaibuinguyen.net',
+* user:'admin_nckh',
+* password:'iot@2018',
+* database:'admin_nckh'
+
 ## Technology
 ### WebApp
 * PHP 7.1.10
