@@ -4,6 +4,7 @@
 #include <ArduinoJson.h>
 #include <LiquidCrystal_I2C.h>
 
+
 #define ssid  "PKOVER_Wifi"
 #define pass  "01678911202"
 
@@ -53,13 +54,7 @@ void thatbai(){
   digitalWrite(redled, LOW);
 }
 
-void lcd(){
- lcd.clear();
- lcd.setCursor(0,0);
- lcd.print("Moi Quet The");
- lcd.setCursor(0,1);
- lcd.print("Scan your Card");
-}
+
  
 void setup() {
  
@@ -100,7 +95,7 @@ void loop() {
    tag = RFID.readId();
    sprintf(chuoi, "%d", tag);
    datasv["idCard"]= int (tag);
-   datasv["DeviceID"] = ("Client01");
+//   datasv["DeviceID"] = ("Client01");
  
    char JSONmessageBuffer[300];
     datasv.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
@@ -108,7 +103,7 @@ void loop() {
   if(WiFi.status() == WL_CONNECTED){
     HTTPClient http;    //Declare object of class HTTPClient
     
-    http.begin("http://192.168.43.178:10110/card/req");      //Specify request destination
+    http.begin("http://dl.hoangthai.me:10110/card/req");      //Specify request destination
     http.addHeader("Content-Type", "application/json");  //Specify content-type header
     int httpCode = http.POST(JSONmessageBuffer);   //Send the request
     String payload = http.getString();   
@@ -124,6 +119,7 @@ void loop() {
   thatbai();
   Serial.println("Gui du lieu len may chu that bai");
   
+   }
 }
 
 
