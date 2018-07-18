@@ -58,7 +58,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 ## API - post
 ### rfid (non register row)
 *	new RFID
-* personalID = "new"+ random string length (7)
+* identification = "new"+ random string length (7)
 * isStudent = 2
 ### attendance
 

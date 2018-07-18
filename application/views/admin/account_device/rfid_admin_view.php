@@ -28,11 +28,11 @@ if(in_array('identification',$fetchRole) == FALSE) {
           echo '<tr>
             <td>'.$stt.'</td>
             <td>'.$row['idCard'].'</td>
-            <td>'.$row['personalID'].'</td>
+            <td>'.$row['identification'].'</td>
             <td>
               <a href="';
-              if ($row['isStudent'] == 1) { echo base_url('admin/rfid_detail/'.$row['personalID'].'/student'); }
-              else if ($row['isStudent'] == 0) { echo base_url('admin/rfid_detail/'.$row['personalID']); }
+              if ($row['isStudent'] == 1) { echo base_url('admin/rfid_detail/'.$row['identification'].'/student'); }
+              else if ($row['isStudent'] == 0) { echo base_url('admin/rfid_detail/'.$row['identification']); }
               else echo base_url('admin/rfid_account/');
               echo '" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a>
               <button class="btn btn-primary edit-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-edit"></span></button>
@@ -65,7 +65,7 @@ function load_ajax_edit_card(idCard){
 			// alert(result);
       var kq = $.parseJSON(result);
       var id = kq.idCard;
-      var pid = kq.personalID;
+      var pid = kq.identification;
       $('.modal-body').html(
       '<label for="cid">Mã thẻ</label><input type="text" name="cid" id="cid" value="'+id+'" class="form-control" placeholder="Nhập mã thẻ hoặc dùng máy đọc thẻ" required>'
       +'<label for="pid">Mã số định danh</label><input type="text" name="pid" id="pid" value="'+pid+'" class="form-control" placeholder="Nhập mã số định danh của cá nhân" required>'

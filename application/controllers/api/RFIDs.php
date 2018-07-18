@@ -80,7 +80,7 @@ class RFIDs extends CI_Controller {
 						$json = json_decode($_POST['data'], TRUE);
 						foreach ($json as $key => $row) {
 							$data['idCard'] = $row['idCard'];
-							$data['personalID'] = $row['personalID'];
+							$data['identification'] = $row['identification'];
 							$data['isStudent'] = $row['isStudent'];
 
 							$checkIdCard = $this->Mrfid->getByCard($row['idCard']);

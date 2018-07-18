@@ -29,10 +29,10 @@ if(in_array('attendance',$fetchRole) == FALSE) {
           foreach ($content as $key => $row) {
             $joiner = $this->Mrfid->getByCard($row['idCard']);
             if ($joiner['isStudent'] == 1) {
-               $student = $this->Mstudent->getById($joiner['personalID']);
+               $student = $this->Mstudent->getById($joiner['identification']);
                $name = $student['lastNameStudent'].' '.$student['firstNameStudent'];
             } else if ($joiner['isStudent'] == 0) {
-               $staff = $this->Mstaff->getById($joiner['personalID']);
+               $staff = $this->Mstaff->getById($joiner['identification']);
                $name = $staff['lastNameStaff'].' '.$staff['firstNameStaff'];
             } else {
                $name = '<i>Không tồn tại</i>';
@@ -40,7 +40,7 @@ if(in_array('attendance',$fetchRole) == FALSE) {
             echo '<tr>
               <td>'.$stt.'</td>
               <td>'.$name.'</td>
-              <td>'.$joiner['personalID'].'</td>
+              <td>'.$joiner['identification'].'</td>
               <td>'.$row['timeIn'].'</td>
               <td>'.$row['timeOut'].'</td>
               <td>

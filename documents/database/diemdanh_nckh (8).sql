@@ -289,7 +289,7 @@ INSERT INTO `organizations` (`id`, `parent`, `text`, `description`) VALUES
 
 CREATE TABLE `register` (
   `id` int(20) NOT NULL,
-  `personalID` char(10) COLLATE utf8_unicode_ci NOT NULL,
+  `identification` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `idEvent` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -302,7 +302,7 @@ CREATE TABLE `register` (
 CREATE TABLE `rfid` (
   `id` int(5) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `personalID` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `identification` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isStudent` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -310,7 +310,7 @@ CREATE TABLE `rfid` (
 -- Dumping data for table `rfid`
 --
 
-INSERT INTO `rfid` (`id`, `idCard`, `personalID`, `isStudent`) VALUES
+INSERT INTO `rfid` (`id`, `idCard`, `identification`, `isStudent`) VALUES
 (2, '0770056810', '002356', 0),
 (3, '0101503659', '002321', 0),
 (4, '0770236810', '001232', 0),

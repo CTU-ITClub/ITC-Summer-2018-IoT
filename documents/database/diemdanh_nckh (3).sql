@@ -152,7 +152,7 @@ CREATE TABLE `register` (
 CREATE TABLE `rfid` (
   `id` int(5) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `personalID` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `identification` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------

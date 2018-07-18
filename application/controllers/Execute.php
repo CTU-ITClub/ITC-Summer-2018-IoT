@@ -88,7 +88,7 @@ class Execute extends CI_Controller {
 
 		public function register_event(){
         if (isset($_POST['register'])) {
-					$data['personalID'] = htmlspecialchars(addslashes($_POST['maso']));
+					$data['identification'] = htmlspecialchars(addslashes($_POST['maso']));
 					$data['idEvent'] = htmlspecialchars(addslashes($_POST['idEvent']));
 
           $this->Mregister->insertRegister($data);
@@ -105,7 +105,7 @@ class Execute extends CI_Controller {
 		public function add_card(){
         if (isset($_POST['addNew'])) {
           $data['idCard'] = htmlspecialchars(addslashes($_POST['cid']));
-					$data['personalID'] = htmlspecialchars(addslashes($_POST['pid']));
+					$data['identification'] = htmlspecialchars(addslashes($_POST['pid']));
           $data['isStudent'] = $_POST['type'];
 
           $this->Mrfid->insertCard($data);
@@ -350,7 +350,7 @@ class Execute extends CI_Controller {
 		public function put_card(){
 				if (isset($_POST['putCard'])) {
 					$id = htmlspecialchars(addslashes($_POST['cid']));
-					$data['personalID'] = htmlspecialchars(addslashes($_POST['pid']));
+					$data['identification'] = htmlspecialchars(addslashes($_POST['pid']));
 					$data['isStudent'] = htmlspecialchars(addslashes($_POST['type']));
 
 					$this->Mrfid->updateCard($data,$id);

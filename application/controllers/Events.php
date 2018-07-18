@@ -26,7 +26,7 @@ class Events extends CI_Controller {
 				$this->_data['titlePage'] = 'Chi tiết sự kiện';
 				$this->_data['contentPage'] = $isExistId;
 				if (isset($_POST['checked'])) {
-					$this->_data['personalJoined'] = $_POST['personalid'];
+					$this->_data['personalJoined'] = $_POST['identification'];
 					$this->_data['isJoined'] = 'YES';
 				} else {
 					$this->_data['personalJoined'] = null;

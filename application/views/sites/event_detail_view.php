@@ -72,7 +72,7 @@
           <h4 class="modal-title">Tra cứu điểm danh</h4>
         </div>
         <div class="modal-body">
-          <input type="text" name="personalid" class="form-control" placeholder="Nhập mã số cán bộ/sinh viên để tra cứu">
+          <input type="text" name="identification" class="form-control" placeholder="Nhập mã số cán bộ/sinh viên để tra cứu">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
