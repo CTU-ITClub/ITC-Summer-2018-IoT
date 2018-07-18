@@ -11,7 +11,7 @@ $fetchRole = explode(',',$_role);
 <!doctype html>
 <html>
 <head>
-    <link rel="manifest" href="<?php echo base_url('manifest.json'); ?>">
+    <!-- <link rel="manifest" href="<?php // echo base_url('manifest.json'); ?>"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta http-equiv="content-Type" content="text/html; charset=utf-8">
     <meta name="msapplication-tap-highlight" content="no">
@@ -23,18 +23,18 @@ $fetchRole = explode(',',$_role);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
    <!-- Core CSS in public directory -->
-   <link rel="preload" href="<?php echo base_url('public/css/style.css'); ?>" rel="stylesheet">
-   <link rel="preload" href="<?php echo base_url('public/css/bootstrap.min.css'); ?>" rel="stylesheet">
-   <link rel="preload" href="<?php echo base_url('public/css/main_style.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/style.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/bootstrap.min.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/main_style.css'); ?>" rel="stylesheet">
    <link href="<?php echo base_url('public/extensions/font-awesome/4.7.0/css/font-awesome.min.css'); ?>">
 
    <!-- Core JS in public directory -->
-   <script rel="preload" src="<?php echo base_url('public/js/jquery-3.2.1.min.js'); ?>"></script>
-   <script rel="preload" src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
+   <script src="<?php echo base_url('public/js/jquery-3.2.1.min.js'); ?>"></script>
+   <script src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
    <script src="<?php // echo base_url('js/main.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
-   <link rel="preload" rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/DataTables/datatables.min.css'); ?>"/>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/DataTables/datatables.min.css'); ?>"/>
    <script type="text/javascript" src="<?php echo base_url('public/extensions/DataTables/datatables.min.js'); ?>"></script>
    <!-- Using DataTables -->
    <script type="text/javascript">
@@ -63,7 +63,7 @@ $fetchRole = explode(',',$_role);
    <!-- <link rel="stylesheet" href="<?php echo base_url('public/css/cit_login_style.css'); ?>"/> -->
 
    <!-- Ho Chi Minh University of Sciences - Viet Nam University, Ho Chi Minh City Library -->
-   <link rel="preload" href="<?php echo base_url('public/css/hcmus_common_style.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/hcmus_common_style.css'); ?>" rel="stylesheet">
 
    <!-- CSS and JS internal -->
    <style type="text/css">
@@ -89,14 +89,14 @@ $fetchRole = explode(',',$_role);
     </style>
 
     <!-- Add to home screen for Safari on iOS-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="SYUM">
-    <link rel="apple-touch-icon" href="<?php echo base_url('public/images/ctu_logo.gif'); ?>">
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
+    <!-- <meta name="apple-mobile-web-app-title" content="SYUM"> -->
+    <!-- <link rel="apple-touch-icon" href="<?php // echo base_url('public/images/ctu_logo.gif'); ?>"> -->
     <!-- Add to home screen for Windows-->
-    <meta name="msapplication-TileImage" content="<?php echo base_url('public/images/ctu_logo.gif'); ?>">
-    <meta name="msapplication-TileColor" content="#000000">
-    <link rel="manifest" href="<?php echo base_url('manifest.json'); ?>">
+    <!-- <meta name="msapplication-TileImage" content="<?php // echo base_url('public/images/ctu_logo.gif'); ?>"> -->
+    <!-- <meta name="msapplication-TileColor" content="#000000"> -->
+    <!-- <link rel="manifest" href="<?php // echo base_url('manifest.json'); ?>"> -->
 </head>
 <body id="page-header">
   <!--Menu bar-->
