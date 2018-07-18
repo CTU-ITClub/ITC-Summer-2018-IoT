@@ -10,14 +10,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 - Edit field: $config['base_url'] (line 27) as localhost/host ip or address
 - View at address/ip like base_url
 
-## Note
-### Database connect
-* host:'sv.hoangthaibuinguyen.net',
-* user:'admin_nckh',
-* password:'iot@2018',
-* database:'admin_nckh'
-
-## Technology
+## Technology/Library
 ### WebApp
 * PHP 7.1.10
 * MySQL/MariaDB 4.7.4
@@ -33,72 +26,63 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Coming soon: Google Chart
 ### IoT
-* Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)
-* Json simple 1.1.1- java
 * ArduinoJson 5.11
-* JRE 1.8
-* JDK 8
-* rdm630 - RFID Reader Libraries
+* ESP8266 HTTP Client
+* RDM6300 - RFID Reader Libraries
+* LiquidCrystal_I2C
+* ESP8266WiFi
+* Serial command
 
-## Hardware
-* Raspberry Pi 3
-* NodeMCU ESP8266
+## Main Hardware
+* ESP8266 IoT Uno
 * Arduino Nano
 * 125kHz RFID Scanner as a board
 
 ## Text Editor
 * Atom
-* Notepad++
-* PHPStorm (Web IDE)
 * Arduino IDE
-* Netbeans
+* Notepad++
 
-## Attendance_IoT - Branch for Hardware
+## Client Testing
+* Postman
+* Command Prompt
 
-### Libraries
-* ArduinoJson 5.11
-* rdm630
-* Serial command
-* Json simple 1.1.1- java
-
-### API Queue sync - get
+## API Queue sync - get
 * Event
 * rfid
 * student
 * staff
 
-### API - post
-#### rfid (non register row)
+## API - post
+### rfid (non register row)
 *	new RFID
 * personalID = "new"+ random string length (7)
 * isStudent = 2
-#### attendance
+### attendance
 
 ## Link reference(s)
 * Atom: https://atom.io/
 * Notepad++: https://notepad-plus-plus.org/download/v7.5.1.html
 * Arduino IDE: https://www.arduino.cc/en/Main/Software
-* Netbeans: https://netbeans.org/
-* Github Project IoT: https://github.com/sj96/Attendance_IoT
-* Demo: https://demo.ngthuc.com/project/nckh (coming soon)
+* Demo: /// (coming soon)
 * Google Chart - https://developers.google.com/chart/interactive/docs/quick_start (coming soon)
 * DataTables language plugin: https://datatables.net/plug-ins/i18n/Vietnamese
 * ArduinoJson 5.11 - https://arduinojson.org/
-* https://www.arduino.cc/reference/en/
-* https://arduinojson.org/doc/
-* https://techtutorialsx.com/2016/07/21/esp8266-post-requests/
-* http://www.esp8266.com/viewtopic.php?f=29&t=14528
-* http://pi4j.com/example/
-* https://code.google.com/archive/p/json-simple/
-* https://www.mkyong.com/java/json-simple-example-read-and-write-json/
-* http://arduino.vn/bai-viet/1496-esp8266-ket-noi-internet-phan-1-cai-dat-esp8266-lam-mot-socket-client-ket-noi-toi
-* http://arduino.vn/bai-viet/1497-esp8266-ket-noi-internet-phan-2-arduino-gap-esp8266-hai-dua-noi-chuyen-bang-json
-* http://arduino.vn/bai-viet/1511-esp8266-ket-noi-internet-phan-3-arduino-gap-smartphone-hai-dua-noi-chuyen-bang-json
+* ESP8266HTTPClient: https://techtutorialsx.com/2016/07/21/esp8266-post-requests/
+* POSTMAN: https://www.getpostman.com/
+* Arduino homepage: https://www.arduino.cc/reference/en/
+* Arduino Json homepage: https://arduinojson.org/doc/
+* Example: http://arduino.vn/bai-viet/1496-esp8266-ket-noi-internet-phan-1-cai-dat-esp8266-lam-mot-socket-client-ket-noi-toi
+* Example: http://arduino.vn/bai-viet/1497-esp8266-ket-noi-internet-phan-2-arduino-gap-esp8266-hai-dua-noi-chuyen-bang-json
+* Example: http://arduino.vn/bai-viet/1511-esp8266-ket-noi-internet-phan-3-arduino-gap-smartphone-hai-dua-noi-chuyen-bang-json
 
 ## My Team
 * Leader: Mr.Le Nguyen Thuc
 * Member: Mr.Bui Nguyen Hoang Thai
+* Organization: Can Tho University, IT Club in College of ICT
+* Org' page: http://www.cit.ctu.edu.vn/doankhoa/en/clb-doi-nhom/clb-tin-hoc.html
 * Hardware Partner: Hshop.vn
+* Hardware Partner: Iotmaker.vn
 
 # Thanks for follow!

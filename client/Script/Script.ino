@@ -5,8 +5,8 @@
 #include <LiquidCrystal_I2C.h>
 
 
-#define ssid  "PKOVER_Wifi"
-#define pass  "01678911202"
+#define ssid  "???" // Wifi name
+#define pass  "???" // Wifi password
 
 #define RFID_RX_PIN 4  //RFID Reader Pin 4
 #define RFID_TX_PIN 1
@@ -55,20 +55,20 @@ void thatbai(){
 }
 
 
- 
+
 void setup() {
- 
+
   Serial.begin(115200);                                  //Serial connection
   lcd.begin();
-  lcd.backlight(); 
+  lcd.backlight();
   lcd.setCursor(0,0);
   lcd.print("Dang Ket Noi....");
   WiFi.begin(ssid, pass);   //WiFi connection
- 
+
   while (WiFi.status() != WL_CONNECTED) {  //Wait for the WiFI connection completion
     delay(500);
     Serial.println("Dang ket noi");
- 
+
   }
  Serial.println(WiFi.localIP());
  Serial.println("WIFI Connected");
@@ -87,7 +87,7 @@ void setup() {
  lcd.setCursor(2,0);
  lcd.print("Moi Quet The");
 }
- 
+
 void loop() {
   if(RFID.isIdAvailable()) {
    tag = RFID.readId();
@@ -96,30 +96,28 @@ void loop() {
    sprintf(chuoi, "%d", tag);
    datasv["idCard"]= int (tag);
 //   datasv["DeviceID"] = ("Client01");
- 
+
    char JSONmessageBuffer[300];
     datasv.prettyPrintTo(JSONmessageBuffer, sizeof(JSONmessageBuffer));
     Serial.println(JSONmessageBuffer);
   if(WiFi.status() == WL_CONNECTED){
     HTTPClient http;    //Declare object of class HTTPClient
-    
+
     http.begin("http://dl.hoangthai.me:10110/card/req");      //Specify request destination
     http.addHeader("Content-Type", "application/json");  //Specify content-type header
     int httpCode = http.POST(JSONmessageBuffer);   //Send the request
-    String payload = http.getString();   
-   
+    String payload = http.getString();
+
    Serial.println(httpCode);   //Print HTTP return code
    Serial.println(payload);    //Print request response payload
-   
+
    http.end();  //Close connection
    thanhcong();
    Serial.println("Gui du lieu len may chu thanh cong");
   }
-  else  
+  else
   thatbai();
   Serial.println("Gui du lieu len may chu that bai");
-  
+
    }
 }
-
-
