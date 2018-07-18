@@ -1,0 +1,10 @@
+{
+  "name": "Quản lý Đoàn Thanh niên",
+  "short_name": "SYUM",
+  "theme_color": "#1b37ee",
+  "background_color": "rgba(255,255,255,0.15)",
+  "display": "fullscreen",
+  "start_url": "http://localhost/itc/",
+  "icons": "http://localhost/itc/public/images/ctu_logo.gif",
+  "splash_pages": null
+}
