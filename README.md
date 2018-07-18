@@ -1,5 +1,6 @@
 # ITC Summer 2018 - IoT
 Developed based on the scientific research topic code TSV2017-12 of an Can Tho University student team.
+* Demo: /// (coming soon)
 
 ## Installation Web App
 - Go to /application/config/database.php
@@ -65,7 +66,6 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * Atom: https://atom.io/
 * Notepad++: https://notepad-plus-plus.org/download/v7.5.1.html
 * Arduino IDE: https://www.arduino.cc/en/Main/Software
-* Demo: /// (coming soon)
 * Google Chart - https://developers.google.com/chart/interactive/docs/quick_start (coming soon)
 * DataTables language plugin: https://datatables.net/plug-ins/i18n/Vietnamese
 * ArduinoJson 5.11 - https://arduinojson.org/
@@ -73,6 +73,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * POSTMAN: https://www.getpostman.com/
 * Arduino homepage: https://www.arduino.cc/reference/en/
 * Arduino Json homepage: https://arduinojson.org/doc/
+* Origin project: https://github.com/ngthuc/TSV2017-12
 * Example: http://arduino.vn/bai-viet/1496-esp8266-ket-noi-internet-phan-1-cai-dat-esp8266-lam-mot-socket-client-ket-noi-toi
 * Example: http://arduino.vn/bai-viet/1497-esp8266-ket-noi-internet-phan-2-arduino-gap-esp8266-hai-dua-noi-chuyen-bang-json
 * Example: http://arduino.vn/bai-viet/1511-esp8266-ket-noi-internet-phan-3-arduino-gap-smartphone-hai-dua-noi-chuyen-bang-json
