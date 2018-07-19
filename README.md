@@ -81,7 +81,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 ## My Team
 * Leader: Mr.Le Nguyen Thuc
 * Member: Mr.Bui Nguyen Hoang Thai
-* Organization: Can Tho University, IT Club in College of ICT
+* Organization: Can Tho University, IT Club at College of ICT
 * Org' page: http://www.cit.ctu.edu.vn/doankhoa/en/clb-doi-nhom/clb-tin-hoc.html
 * Hardware Partner: Hshop.vn
 * Hardware Partner: Iotmaker.vn
