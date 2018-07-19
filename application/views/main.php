@@ -11,7 +11,6 @@ $fetchRole = explode(',',$_role);
 <!doctype html>
 <html>
 <head>
-    <!-- <link rel="manifest" href="<?php // echo base_url('manifest.json'); ?>"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta http-equiv="content-Type" content="text/html; charset=utf-8">
     <meta name="msapplication-tap-highlight" content="no">
@@ -87,16 +86,6 @@ $fetchRole = explode(',',$_role);
        color: black !important;
      }
     </style>
-
-    <!-- Add to home screen for Safari on iOS-->
-    <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
-    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="default"> -->
-    <!-- <meta name="apple-mobile-web-app-title" content="SYUM"> -->
-    <!-- <link rel="apple-touch-icon" href="<?php // echo base_url('public/images/ctu_logo.gif'); ?>"> -->
-    <!-- Add to home screen for Windows-->
-    <!-- <meta name="msapplication-TileImage" content="<?php // echo base_url('public/images/ctu_logo.gif'); ?>"> -->
-    <!-- <meta name="msapplication-TileColor" content="#000000"> -->
-    <!-- <link rel="manifest" href="<?php // echo base_url('manifest.json'); ?>"> -->
 </head>
 <body id="page-header">
   <!--Menu bar-->
