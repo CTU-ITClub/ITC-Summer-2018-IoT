@@ -58,6 +58,9 @@ router.post('/req',function(req,res,next){
         data = JSON.parse(string);
         res.json(data);
         console.log("Card " + data.idCard + " of " + data.endUser);
+      } else {
+        res.json({'message':'Not found!'});
+        console.log('Not found!');
       }
     }
   });
