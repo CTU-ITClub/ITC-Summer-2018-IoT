@@ -24,6 +24,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * JSTree 3.3.4
 * DataTables 1.10.16
 * DataTables Vietnamese language of Trinh Phuoc Thai
+* Notify.js 0.4.2
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Coming soon: Google Chart
 
@@ -54,6 +55,8 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 ## Client Testing
 * Postman
 * Command Prompt
+* Node.js Platform
+* Ampps
 
 ## Data Flow
 * WebApp <=> API <=> IoT
@@ -64,6 +67,13 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * Arduino IDE: https://www.arduino.cc/en/Main/Software
 * Google Chart - https://developers.google.com/chart/interactive/docs/quick_start (coming soon)
 * DataTables language plugin: https://datatables.net/plug-ins/i18n/Vietnamese
+* CodeIgniter: https://codeigniter.com/
+* Bootstrap: https://getbootstrap.com/
+* jQuery: https://jquery.com/
+* jsTree: https://www.jstree.com/
+* Notify.js: https://notifyjs.jpillora.com/
+* Node.js: https://nodejs.org/en/
+* Ampps: https://www.ampps.com/
 * ArduinoJson 5.11 - https://arduinojson.org/
 * ESP8266HTTPClient: https://techtutorialsx.com/2016/07/21/esp8266-post-requests/
 * POSTMAN: https://www.getpostman.com/
