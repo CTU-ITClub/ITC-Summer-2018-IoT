@@ -1,1 +1,4 @@
 theme: jekyll-theme-cayman
+title: 'IT Club Summer Project | 2018'
+description: 'A product of Can Tho University, IT Club at College of ICT: Timekeeping project with ESP8266 - NodeJS - CodeIgniter based on Student Scientific Research Project (code: TSV2017-12).'
+show_downloads: true
