@@ -26,6 +26,12 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * DataTables Vietnamese language of Trinh Phuoc Thai
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Coming soon: Google Chart
+
+### RESTful API Server
+* NodeJS
+* MySQL
+* JSON Web Token
+
 ### IoT
 * Wiring for Arduino (using C)
 * ArduinoJson 5.11
@@ -49,18 +55,8 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * Postman
 * Command Prompt
 
-## API Queue sync - get
-* Event
-* rfid
-* student
-* staff
-
-## API - post
-### rfid (non register row)
-*	new RFID
-* identification = "new"+ random string length (7)
-* isStudent = 2
-### attendance
+## Data Flow
+* WebApp <=> API <=> IoT
 
 ## Link reference(s)
 * Atom: https://atom.io/
