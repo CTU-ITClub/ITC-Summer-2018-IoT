@@ -59,7 +59,7 @@ Developed based on the scientific research topic code TSV2017-12 of an Can Tho U
 * Ampps
 
 ## Data Flow
-* WebApp <=> API <=> IoT
+### WebApp <=> API <=> IoT
 
 ## Link reference(s)
 * Atom: https://atom.io/
