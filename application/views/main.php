@@ -30,7 +30,7 @@ $fetchRole = explode(',',$_role);
    <!-- Core JS in public directory -->
    <script src="<?php echo base_url('public/js/jquery-3.2.1.min.js'); ?>"></script>
    <script src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
-   <script src="<?php // echo base_url('js/main.js'); ?>"></script>
+   <script src="<?php echo base_url('public/js/main.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/DataTables/datatables.min.css'); ?>"/>
