@@ -1,4 +1,4 @@
-var db = require('./conn');
+var db = require('./db');
 
 var Model = {
 	getAllCard:function(callback){
