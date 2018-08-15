@@ -104,10 +104,41 @@ if(in_array('event',$fetchRole) == FALSE) {
 $('#addNew').on('click', function() {
     var url="<?php echo base_url('admin/add_event')?>";
     var form="#add_Event";
-   // alert($("#add_Event").serialize());
-   // alert(url + ($(form).serialize()));
-   makeAjaxCall(url, form);
-   // location.reload();
+    makeAjaxCall(url, form);
+    // var nameEvent=document.getElementById("nameEvent").value;
+    // var timeStart=document.getElementById("timeStart").value;
+    // var timeEnd=document.getElementById("timeEnd").value;
+    // var dateEvent=document.getElementById("dateEvent").value;
+    // var locationEvent=document.getElementById("locationEvent").value;
+    // var descriptionEvent=document.getElementById("descriptionEvent").value;
+    // var org=document.getElementById("org").value;
+
+    // $.ajax({
+    //     type: "post",
+    //     url: url,
+    //     cache: false,
+    //     data: {
+    //       nameEvent : nameEvent,
+    //       timeStart : timeStart,
+    //       timeEnd : timeEnd,
+    //       dateEvent : dateEvent,
+    //       locationEvent : locationEvent,
+    //       descriptionEvent : descriptionEvent,
+    //       org : org
+    //     },
+    //     success: function(json){
+    //       try {
+    //           var obj = jQuery.parseJSON(json);
+    //           $.notify(obj['MESSAGE'],obj['STATUS']);
+    //           location.reload();
+    //       } catch(e) {
+    //           alert('Exception while request..');
+    //       }
+    //     },
+    //     error: function(){
+    //         alert('Error while request..');
+    //     }
+    //   });
 });
 
 function makeAjaxCall(url, form){

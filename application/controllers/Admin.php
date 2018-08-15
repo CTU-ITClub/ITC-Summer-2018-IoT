@@ -43,10 +43,10 @@ class Admin extends CI_Controller {
 
 			$status = $this->Mevent->insertEvent($data);
 			// Thông báo
-			if($status) {
-				echo json_encode(array("STATUS"=>"SUCCESS","MESSAGE"=>"Thêm sự kiện thành công!"));
+			if(!$status) {
+				echo json_encode(array("STATUS"=>"success","MESSAGE"=>"Thêm sự kiện thành công!"));
 			} else {
-				echo json_encode(array("STATUS"=>"ERROR","MESSAGE"=>"Thêm sự kiện thất bại!"));
+				echo json_encode(array("STATUS"=>"error","MESSAGE"=>"Thêm sự kiện thất bại!"));
 			}
     }
 
