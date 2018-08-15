@@ -60,7 +60,8 @@ if(in_array('event',$fetchRole) == FALSE) {
 <!-- Add new event -->
 <div class="modal fade" id="new-event" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo base_url('execute/add_event');?>" method="POST">
+    <!-- <form class="form-horizontal" action="<?php echo base_url('execute/add_event');?>" method="POST"> -->
+    <form class="form-horizontal" id="add_Event" method="POST">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -80,7 +81,7 @@ if(in_array('event',$fetchRole) == FALSE) {
         <label for="descriptionEvent">Mô tả</label>
         <input type="text" name="descriptionEvent" id="descriptionEvent" class="form-control" placeholder="Nhập mô tả sự kiện" required>
         <label for="org">Đơn vị tổ chức</label>
-        <select class="form-control" name="org">
+        <select class="form-control" name="org" id="org">
           <?php $org = $this->Morg->getList();
           foreach ($org as $key => $row) {
               echo '<option value="'.$row['id'].'">'.$row['text'].'</option>';
@@ -89,7 +90,8 @@ if(in_array('event',$fetchRole) == FALSE) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button>
+        <!-- <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button> -->
+        <button type="button" id="addNew" class="btn btn-primary">Thêm mới</button>
       </div>
     </div>
     </form>
@@ -98,6 +100,38 @@ if(in_array('event',$fetchRole) == FALSE) {
 
 <!-- Load ajax -->
 <script type="text/javascript">
+// Add event
+$('#addNew').on('click', function() {
+    var url="<?php echo base_url('admin/add_event')?>";
+    var form="#add_Event";
+   // alert($("#add_Event").serialize());
+   // alert(url + ($(form).serialize()));
+   makeAjaxCall(url, form);
+   // location.reload();
+});
+
+function makeAjaxCall(url, form){
+    $.ajax({
+        type: "post",
+        url: url,
+        cache: false,
+        data: $(form).serialize(),
+        success: function(json){
+          try {
+              var obj = jQuery.parseJSON(json);
+              $.notify(obj['MESSAGE'],obj['STATUS']);
+              location.reload();
+          } catch(e) {
+              alert('Exception while request..');
+          }
+        },
+        error: function(){
+            alert('Error while request..');
+        }
+      });
+}
+
+// Delete event
 $('.delete-event').on('click', function() {
     var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
     if (r == true) {

@@ -21,3 +21,25 @@ function checkall(source,name) {
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover();
 });
+
+function makeAjaxCall(url, form){
+    alert(url + ($(form).serialize()));
+    $.ajax({
+        type: "post",
+        url: url,
+        cache: false,
+        data: $(form).serialize(),
+        success: function(json){
+          try {
+              var obj = jQuery.parseJSON(json);
+              $.notify(obj['MESSAGE'],obj['STATUS']);
+              location.reload();
+          } catch(e) {
+              alert('Exception while request..');
+          }
+        },
+        error: function(){
+            alert('Error while request..');
+        }
+      });
+}
