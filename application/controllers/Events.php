@@ -69,7 +69,6 @@ class Events extends CI_Controller {
 						$parent['text'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
 		        $parent['id'] = $getOrg['id'];
 		      } else $parent = $this->Morg->getOrgById($getOrg['parent']);
-
 					$this->_data['subview'] = 'sites/events_org_detail_view';
 					$this->_data['titlePage'] = 'Chi tiết tổ chức';
 
