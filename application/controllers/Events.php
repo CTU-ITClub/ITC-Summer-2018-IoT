@@ -87,11 +87,11 @@ class Events extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function res($field = null, $value = null)
+		public function res($value = null)
 		{
 				header('Content-Type: application/json;charset=utf-8');
 				if ($value != null) {
-					$content = $this->Morg->getListOrgById($value);
+					$content = $this->Morg->getListOrg($value);
 				} else $content = $this->Morg->getList();
 
 				foreach ($content as $key => $row) {
@@ -124,17 +124,17 @@ class Events extends CI_Controller {
 				echo json_encode($data);
 		}
 
-		public function req($field = null, $value = null) {
+		public function req($value = null) {
 			if($value != null) {
-				$json = json_decode(file_get_contents(base_url('events/res/'.$field.'/'.$value)),TRUE);
+				$json = json_decode(file_get_contents(base_url('events/res/'.$value)),TRUE);
 			} else {
 				$json = json_decode(file_get_contents(base_url('events/res/')),TRUE);
 			}
 			var_dump($json);
 		}
 
-		public function req_org($value = null) {
-			$org = $this->Morg->getListOrgById($value);
-			var_dump($org);
-		}
+		// public function req_org($value = null) {
+		// 	$org = $this->Morg->getListOrg($value);
+		// 	var_dump($org);
+		// }
 }

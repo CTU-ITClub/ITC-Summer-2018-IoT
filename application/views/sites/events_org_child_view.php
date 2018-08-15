@@ -20,7 +20,7 @@
         $('#tree_list').jstree({
             'core' : {
                 'data' : {
-                    "url" : "<?php echo base_url('events/res/id/'.$org); ?>"
+                    "url" : "<?php echo base_url('events/res/'.$org); ?>"
                 }
             }
         }).bind("select_node.jstree", function (e, data) {

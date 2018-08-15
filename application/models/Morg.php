@@ -1,6 +1,7 @@
 <?php
 class Morg extends CI_Model {
     protected $_table = 'organizations';
+    protected $_list = array();
     protected $_arr = array();
 
     public function __construct(){
@@ -24,44 +25,36 @@ class Morg extends CI_Model {
         return $this->db->get($this->_table)->row_array();
     }
 
-    public function getChildNumRows($idparent){
-        $findChild = $this->db->query("SELECT * FROM $this->_table WHERE parent = '$idparent'");
-        return $findChild->num_rows();
+    public function getChild($idparent){
+        $findChild = $this->getList('parent', $idparent);
+
+        foreach ($findChild as $key => $child) {
+          if (!$child) break;
+          $list = array(
+            'id' => $child['id'],
+            'text' => $child['text'],
+            'description' => $child['description'],
+            'parent' => $child['parent'],
+          );
+          array_push($this->_arr,$list);
+          $this->getChild($child['id']);
+        }
+        return $this->_arr;
     }
 
-    public function getListChildByOrg($idparent) {
-        // Tim kiem nut la ke
-        foreach ($this->getList('parent',$idparent) as $key => $value) {
-          if($value['id'] != $idparent) {
-            // Chen nut la
-            array_push($this->_arr,$value);
-            $data[] = $value['id'];
-          }
+    public function getListOrg($idparent) {
+        // Thong tin nut goc
+        $rootNode = $this->getOrgById($idparent);
+        // Them nut goc vao list
+        array_push($this->_list,$rootNode);
+
+        // Them cac nut la vao list
+        $childNode = $this->getChild($idparent);
+        foreach ($childNode as $key => $node) {
+          array_push($this->_list,$node);
         }
 
-        foreach ($data as $key => $id) {
-          if($this->getChildNumRows($id) > 0) {
-            return $this->getListChildByOrg($id);
-          } else {
-            return $this->_arr;
-          }
-        }
-    }
-
-    public function getListOrgById($idparent) {
-        // Chen nut goc
-        foreach ($this->getList('id',$idparent) as $key => $value) {
-          array_push($this->_arr,$value);
-        }
-
-        if($this->getChildNumRows($idparent) > 0) {
-          // foreach ($this->getList('parent',$idparent) as $key => $value) {
-          //   return $this->getListChildByOrg($value['id']);
-            return $this->getListChildByOrg($idparent);
-          // }
-        } else {
-          return $this->_arr;
-        }
+        return $this->_list;
     }
 
     public function insertOrg($data_insert){
