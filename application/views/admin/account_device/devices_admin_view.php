@@ -39,7 +39,7 @@ if(in_array('device',$fetchRole) == FALSE) {
             else echo '<i style="color:red;">Chưa cấp phép</i>';
             echo '</td>
             <td>
-              <a href="'.base_url('admin/accounts/device_admin/accounts/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="'.base_url('admin/accounts/device_admin/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
