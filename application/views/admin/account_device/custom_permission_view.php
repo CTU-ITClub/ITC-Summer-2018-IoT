@@ -11,7 +11,7 @@ if(in_array('role',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Quản lý phân quyền<?php if ($role) { echo ' của '.$role['roleName']; } ?></h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <a href="<?php echo base_url('admin/permissions/'); ?>" class="btn btn-default">Quay lại trang phân quyền</a>
     <a href="<?php echo base_url('admin/permissions/add/'); ?>" class="btn btn-success">Thêm nhóm quyền mới</a>
   </div>

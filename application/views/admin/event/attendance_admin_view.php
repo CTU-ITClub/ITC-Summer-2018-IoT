@@ -35,7 +35,7 @@ if(in_array('attendance',$fetchRole) == FALSE) {
               <td>'.$row['timeEnd'].'</td>
               <td>'.$row['locationEvent'].'</td>
               <td>
-                <a class="btn btn-primary" href="'.base_url('admin/attendance/'.$row['id'].'/').'"><span class="glyphicon glyphicon-list"></span></a>
+                <a class="btn btn-primary" href="'.base_url('admin/attendance/event/'.$row['id'].'/').'"><span class="glyphicon glyphicon-list"></span></a>
               </td>
             </tr>';
             $stt++;

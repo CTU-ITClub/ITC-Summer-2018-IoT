@@ -10,7 +10,7 @@ if(in_array('identification',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Quản lý thẻ RFID</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <button class="btn btn-success" data-toggle="modal" data-target="#new-card">Cấp phát thẻ mới</button>
   </div>
   <div class="col-md-12">
@@ -31,9 +31,9 @@ if(in_array('identification',$fetchRole) == FALSE) {
             <td>'.$row['identification'].'</td>
             <td>
               <a href="';
-              if ($row['isStudent'] == 1) { echo base_url('admin/rfid_detail/'.$row['identification'].'/student'); }
-              else if ($row['isStudent'] == 0) { echo base_url('admin/rfid_detail/'.$row['identification']); }
-              else echo base_url('admin/rfid_account/');
+              if ($row['isStudent'] == 1) { echo base_url('admin/accounts/rfid_detail/'.$row['identification'].'/student'); }
+              else if ($row['isStudent'] == 0) { echo base_url('admin/accounts/rfid_detail/'.$row['identification']); }
+              else echo base_url('admin/accounts/rfid_account/');
               echo '" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a>
               <button class="btn btn-primary edit-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-edit"></span></button>
               <button class="btn btn-danger delete-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-remove"></span></button>

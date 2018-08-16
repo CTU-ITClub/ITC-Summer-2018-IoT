@@ -10,9 +10,9 @@ if(in_array('device',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Cấp phát key cho thiết bị</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
-    <a href="<?php echo base_url('admin/account_device/'); ?>" class="btn btn-info">Quản lý tài khoản</a>
-    <a href="<?php echo base_url('admin/api_admin/'); ?>" class="btn btn-info">Quản lý API</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/account_device/'); ?>" class="btn btn-info">Quản lý tài khoản</a>
+    <a href="<?php echo base_url('admin/accounts/api_admin/accounts/'); ?>" class="btn btn-info">Quản lý API</a>
   </div>
   <div class="col-md-12">
     <form class="form-horizontal" action="<?php echo base_url('execute/add_api_device');?>" method="POST">

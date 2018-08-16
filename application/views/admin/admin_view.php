@@ -121,7 +121,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/admin_account_device'); ?>">
+      <a href="<?php echo base_url('admin/accounts'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">

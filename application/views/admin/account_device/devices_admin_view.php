@@ -10,8 +10,8 @@ if(in_array('device',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Quản lý thiết bị và API</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
-    <a href="<?php echo base_url('admin/api_admin/'); ?>" class="btn btn-info">Quản lý API</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/api_admin/accounts/'); ?>" class="btn btn-info">Quản lý API</a>
     <button class="btn btn-success" data-toggle="modal" data-target="#new-device">Đăng ký thiết bị mới</button>
   </div>
   <div class="col-md-12">
@@ -39,7 +39,7 @@ if(in_array('device',$fetchRole) == FALSE) {
             else echo '<i style="color:red;">Chưa cấp phép</i>';
             echo '</td>
             <td>
-              <a href="'.base_url('admin/device_admin/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="'.base_url('admin/accounts/device_admin/accounts/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';

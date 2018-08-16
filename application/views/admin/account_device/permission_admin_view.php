@@ -10,7 +10,7 @@ if(in_array('role',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Quản lý quyền truy cập</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <a href="<?php echo base_url('admin/permissions/add'); ?>" class="btn btn-success">Thêm nhóm quyền mới</a>
   </div>
   <div class="col-md-12 table-responsive">
@@ -30,7 +30,7 @@ if(in_array('role',$fetchRole) == FALSE) {
             <td>'.$row['roleName'].'</td>
             <td>'.$row['roleDesc'].'</td>
             <td>
-              <a href="'.base_url('admin/permissions/custom/').$row['roleName'].'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="'.base_url('admin/accounts/permissions/custom/').$row['roleName'].'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-role" data-id="'.$row['roleName'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';

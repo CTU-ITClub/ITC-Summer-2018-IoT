@@ -10,8 +10,8 @@ if(in_array('account',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Chỉnh sửa tài khoản</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
-    <a href="<?php echo base_url('admin/user_account/'); ?>" class="btn btn-info">Quản lý tài khoản</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/user'); ?>" class="btn btn-info">Quản lý tài khoản</a>
   </div>
   <div class="row">
     <div class="col-md-4">

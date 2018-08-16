@@ -14,7 +14,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
   </div>
   <div class="row">
     <div class="col-md-6">
-      <a href="<?php echo base_url('admin/rfid_account'); ?>">
+      <a href="<?php echo base_url('admin/accounts/rfid'); ?>">
         <div class="alert alert-warning">
           <div class="form-activity">
             <div class="form-header">
@@ -25,7 +25,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
       </a>
     </div>
     <div class="col-md-6">
-      <a href="<?php echo base_url('admin/user_account'); ?>">
+      <a href="<?php echo base_url('admin/accounts/user'); ?>">
         <div class="alert alert-success">
           <div class="form-activity">
             <div class="form-header">
@@ -36,7 +36,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
       </a>
     </div>
     <div class="col-md-6">
-      <a href="<?php echo base_url('admin/device_admin'); ?>">
+      <a href="<?php echo base_url('admin/accounts/device_admin'); ?>">
         <div class="alert alert-danger">
           <div class="form-activity">
             <div class="form-header">
@@ -47,7 +47,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
       </a>
     </div>
     <div class="col-md-6">
-      <a href="<?php echo base_url('admin/api_admin'); ?>">
+      <a href="<?php echo base_url('admin/accounts/api_admin'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">
@@ -69,7 +69,7 @@ if(in_array('admin',$fetchRole) == FALSE) {
       </a>
     </div>
     <!-- <div class="col-md-6">
-      <a href="<?php echo base_url('admin/api_admin'); ?>">
+      <a href="<?php echo base_url('admin/accounts/api_admin'); ?>">
         <div class="alert alert-success">
           <div class="form-activity">
             <div class="form-header">

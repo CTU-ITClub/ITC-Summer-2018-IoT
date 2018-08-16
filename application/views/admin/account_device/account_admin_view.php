@@ -10,7 +10,7 @@ if(in_array('account',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Quản lý tài khoản</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
     <button class="btn btn-success" data-toggle="modal" data-target="#new-account">Cấp phát tài khoản mới</button>
   </div>
   <div class="col-md-12">
@@ -41,7 +41,7 @@ if(in_array('account',$fetchRole) == FALSE) {
             } else echo '<i>'.$row['rolename'].'</i>';
             echo '</td>
             <td>
-              <a href="'.base_url('admin/edit_account/'.$row['username'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>';
+              <a href="'.base_url('admin/accounts/edit_account/'.$row['username'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>';
               if(in_array('remove',$fetchRole)) {
                 echo '<button class="btn btn-danger delete-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-remove"></span></button>';
               }

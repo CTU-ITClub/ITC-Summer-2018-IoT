@@ -45,7 +45,7 @@ if(in_array('event',$fetchRole) == FALSE) {
             <td>'.$creator['name'].'</td>
             <td>'.$organization['text'].'</td>
             <td>
-              <a href="'.base_url('admin/edit_event/'.$row['id']).'" class="btn btn-primary">
+              <a href="'.base_url('admin/event/edit_event/'.$row['id']).'" class="btn btn-primary">
                 <span class="glyphicon glyphicon-edit"></span>
               </a>
               <button class="btn btn-danger delete-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
@@ -60,7 +60,6 @@ if(in_array('event',$fetchRole) == FALSE) {
 <!-- Add new event -->
 <div class="modal fade" id="new-event" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
-    <!-- <form class="form-horizontal" action="<?php echo base_url('execute/add_event');?>" method="POST"> -->
     <form class="form-horizontal" id="add_Event" method="POST">
     <div class="modal-content">
       <div class="modal-header">
@@ -90,7 +89,6 @@ if(in_array('event',$fetchRole) == FALSE) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <!-- <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button> -->
         <button type="button" id="addNew" class="btn btn-primary">Thêm mới</button>
       </div>
     </div>
@@ -102,43 +100,9 @@ if(in_array('event',$fetchRole) == FALSE) {
 <script type="text/javascript">
 // Add event
 $('#addNew').on('click', function() {
-    var url="<?php echo base_url('admin/add_event')?>";
+    var url="<?php echo base_url('admin/event/add_event')?>";
     var form="#add_Event";
     makeAjaxCall(url, form);
-    // var nameEvent=document.getElementById("nameEvent").value;
-    // var timeStart=document.getElementById("timeStart").value;
-    // var timeEnd=document.getElementById("timeEnd").value;
-    // var dateEvent=document.getElementById("dateEvent").value;
-    // var locationEvent=document.getElementById("locationEvent").value;
-    // var descriptionEvent=document.getElementById("descriptionEvent").value;
-    // var org=document.getElementById("org").value;
-
-    // $.ajax({
-    //     type: "post",
-    //     url: url,
-    //     cache: false,
-    //     data: {
-    //       nameEvent : nameEvent,
-    //       timeStart : timeStart,
-    //       timeEnd : timeEnd,
-    //       dateEvent : dateEvent,
-    //       locationEvent : locationEvent,
-    //       descriptionEvent : descriptionEvent,
-    //       org : org
-    //     },
-    //     success: function(json){
-    //       try {
-    //           var obj = jQuery.parseJSON(json);
-    //           $.notify(obj['MESSAGE'],obj['STATUS']);
-    //           location.reload();
-    //       } catch(e) {
-    //           alert('Exception while request..');
-    //       }
-    //     },
-    //     error: function(){
-    //         alert('Error while request..');
-    //     }
-    //   });
 });
 
 function makeAjaxCall(url, form){

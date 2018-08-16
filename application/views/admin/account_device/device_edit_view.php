@@ -10,8 +10,8 @@ if(in_array('device',$fetchRole) == FALSE) {
 <div class="container">
   <div class="page-header">
     <h1>Chỉnh sửa thiết bị</h1>
-    <a href="<?php echo base_url('admin/admin_account_device'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
-    <a href="<?php echo base_url('admin/device_admin/'); ?>" class="btn btn-info">Quản lý thiết bị</a>
+    <a href="<?php echo base_url('admin/accounts'); ?>" class="btn btn-default">Quay lại trang quản lý</a>
+    <a href="<?php echo base_url('admin/accounts/device_admin/accounts/'); ?>" class="btn btn-info">Quản lý thiết bị</a>
   </div>
   <div class="col-md-12">
     <form class="form-horizontal" action="<?php echo base_url('execute/put_device');?>" method="POST">
