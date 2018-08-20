@@ -31,7 +31,7 @@ $fetchRole = explode(',',$_role);
    <script src="<?php echo base_url('public/js/jquery-3.2.1.min.js'); ?>"></script>
    <script src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
    <script src="<?php echo base_url('public/js/main.js'); ?>"></script>
-   <script src="<?php echo base_url('public/extensions/notify.js/notify.min.js'); ?>"></script>
+   <script src="<?php echo base_url('public/extensions/notify.js/notify.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/DataTables/datatables.min.css'); ?>"/>

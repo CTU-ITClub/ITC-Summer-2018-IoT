@@ -20,14 +20,14 @@ class Event extends CI_Controller {
 		}
 
 		public function add_event(){
-			$data['nameEvent'] = htmlspecialchars(addslashes($_POST['nameEvent']));
-			$data['timeStart'] = $_POST['timeStart'];
-			$data['timeEnd'] = $_POST['timeEnd'];
-			$data['dateEvent'] = $_POST['dateEvent'];
-			$data['locationEvent'] = htmlspecialchars(addslashes($_POST['locationEvent']));
-			$data['descriptionEvent'] = htmlspecialchars(addslashes($_POST['descriptionEvent']));
-			$data['userCreator'] = $_SESSION['user'];
-			$data['idOrg'] = $_POST['org'];
+			$data['nameEvent'] = $this->input->post('nameEvent');
+			$data['timeStart'] = $this->input->post('timeStart');
+			$data['timeEnd'] = $this->input->post('timeEnd');
+			$data['dateEvent'] = $this->input->post('dateEvent');
+			$data['locationEvent'] = $this->input->post('locationEvent');
+			$data['descriptionEvent'] = $this->input->post('descriptionEvent');
+			$data['userCreator'] = $_SESSION['user']['username'];
+			$data['idOrg'] = $this->input->post('org');
 
 			$status = $this->Mevent->insertEvent($data);
 			// Thông báo
