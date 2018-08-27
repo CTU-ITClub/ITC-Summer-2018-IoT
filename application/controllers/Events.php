@@ -88,7 +88,7 @@ class Events extends CI_Controller {
 
 		public function res($value = null)
 		{
-				header('Content-Type: application/json;charset=utf-8');
+				// header('Content-Type: application/json;charset=utf-8');
 				if ($value != null) {
 					$content = $this->Morg->getListOrg($value);
 				} else $content = $this->Morg->getList();
@@ -120,7 +120,8 @@ class Events extends CI_Controller {
 							)
 					);
 				}
-				echo json_encode($data);
+				// echo json_encode($data);
+				var_dump($data);
 		}
 
 		public function req($value = null) {
